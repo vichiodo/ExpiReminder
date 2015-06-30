@@ -25,13 +25,30 @@ class ProdutoManager {
         if let resultados = buscaResultados as? [Produto] {
             return resultados
         } else {
-            println("Não foi possível buscar esse jogador. Erro: \(erro), \(erro!.userInfo)")
+            println("Não foi possível buscar esse produto. Erro: \(erro), \(erro!.userInfo)")
         }
         
         NSFetchRequest(entityName: "FetchRequest")
         
         return Array<Produto>()
     }
+    
+    func buscarProdutoNome(nome: String) ->Produto {
+        let buscaRequest = NSFetchRequest(entityName: ProdutoManager.entityName)
+        buscaRequest.predicate = NSPredicate(format: "nome == %s", nome)
+        var erro: NSError?
+        let buscaResultados = managedContext.executeFetchRequest(buscaRequest, error: &erro) as? [NSManagedObject]
+        if let resultados = buscaResultados as? [Produto] {
+            return resultados.last!
+        } else {
+            println("Não foi possível buscar esse produto. Erro: \(erro), \(erro!.userInfo)")
+        }
+        
+        NSFetchRequest(entityName: "FetchRequest")
+        
+        return Produto()
+    }
+
     
     func buscarProduto(index: Int) -> Produto{
         var produto: Produto = buscarProdutos()[index]
@@ -43,7 +60,7 @@ class ProdutoManager {
         managedContext.save(&erro)
         
         if let e = erro {
-            println("Não foi possível salvar esse jogador. Erro: \(erro), \(erro!.userInfo)")
+            println("Não foi possível salvar esse produto. Erro: \(erro), \(erro!.userInfo)")
         }
     }
     
