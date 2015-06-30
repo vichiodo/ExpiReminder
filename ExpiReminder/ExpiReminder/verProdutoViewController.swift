@@ -10,6 +10,12 @@ import UIKit
 
 class verProdutoViewController: UIViewController {
 
+    @IBOutlet weak var imgProduto: UIImageView!
+    @IBOutlet weak var lblNomeProduto: UILabel!
+    @IBOutlet weak var lblDataValidade: UILabel!
+    @IBOutlet weak var lblDiasRestantes: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
