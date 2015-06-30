@@ -169,7 +169,7 @@
             <objects>
                 <tableViewController id="Li2-Mt-VK8" customClass="AddProdutoTableViewController" customModule="ExpiReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eaM-dK-dQZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bAr-PM-px6">
@@ -264,6 +264,7 @@
                             <outlet property="delegate" destination="Li2-Mt-VK8" id="pll-C2-4nb"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Novo Produto" id="FWQ-5b-GFI">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="Hhv-Hy-pZq">
                             <connections>

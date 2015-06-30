@@ -23,10 +23,13 @@ class AddProdutoTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -62,12 +65,42 @@ class AddProdutoTableViewController: UITableViewController {
     }
     
     @IBAction func codigoBarra(sender: AnyObject) {
+        
     }
     
     @IBAction func salvar(sender: AnyObject) {
         
         
+        
+        
+        if txtNome == nil{
+            let alerta: UIAlertController = UIAlertController(title: "Nome faltando", message: "Digite o nome do produto", preferredStyle: .Alert)
+            let al1:UIAlertAction = UIAlertAction(title: "OK", style: .Default, handler: { (ACTION) -> Void in
+                txtNome.becomeFirstResponder()
+            })
+            [alerta.addAction(al1)]
+            self.presentViewController(alerta, animated: true, completion: nil)
+        }
+        else{
+            var produto = ProdutoManager.sharedInstance.novoProduto()
+            
+            produto.nome = txtNome.text
+            produto.dataValidade = datePicker.date
+            
+            var dataAgora = NSDate()
+            var convert: Int = Int(dataAgora.timeIntervalSinceDate(datePicker.date))
+            
+            produto.diasFaltando = convert - 86400
+
+            ProdutoManager.sharedInstance.salvarProduto()
+            
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+        
     }
+    
+    
+    
         /*
     // MARK: - Navigation
 

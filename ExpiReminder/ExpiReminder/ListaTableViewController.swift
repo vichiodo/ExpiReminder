@@ -12,9 +12,15 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    lazy var produtos:Array<Produto> = {
+        return ProdutoManager.sharedInstance.buscarProdutos()
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(produtos.count)
     
     }
 
