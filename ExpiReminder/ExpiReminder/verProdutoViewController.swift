@@ -16,29 +16,27 @@ class verProdutoViewController: UIViewController {
     @IBOutlet weak var lblDiasRestantes: UILabel!
     
     var produto: Array<Produto>!
-    var i: Int!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        preencherLabel()
+
     }
     
     override func viewDidAppear(animated: Bool) {
-        preencherLabel()
     }
     
     func preencherLabel() {
         produto = ProdutoManager.sharedInstance.buscarProdutos()
-        lblNomeProduto.text = produto[i].nome
-        lblDataValidade.text = "\(produto[i].dataValidade)"
-        lblDiasRestantes.text = "\(produto[i].diasFaltando)"
+        lblNomeProduto.text = produto[0].nome
+        lblDataValidade.text = "\(produto[0].dataValidade)"
+        lblDiasRestantes.text = "\(produto[0].diasFaltando)"
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editarProduto" {
             let VC = segue.destinationViewController as! AddProdutoTableViewController
-            VC.produto = produto?[i]
+//            VC.produto = produto?[i]
         }
     }
     

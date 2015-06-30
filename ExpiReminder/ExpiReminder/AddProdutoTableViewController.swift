@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 
-class AddProdutoTableViewController: UITableViewController, UIImagePickerControllerDelegate {
+class AddProdutoTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var txtNome: UITextField!
@@ -24,15 +24,13 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
         self.tableView.reloadData()
     }
@@ -76,7 +74,6 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
         else{
             imagePicker.sourceType = .PhotoLibrary
         }
-        imagePicker.allowsEditing = true
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
@@ -93,7 +90,7 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     
     @IBAction func salvar(sender: AnyObject) {
         
-        
+        var produto = ProdutoManager.sharedInstance.novoProduto()
         
         
         if txtNome.text == nil || txtNome.text == ""{
@@ -109,49 +106,49 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
             var convert: Int = Int(dataAgora.timeIntervalSinceDate(datePicker.date))
             var diasFaltando = convert - 86400
     
-
-            ProdutoManager.sharedInstance.salvarNovoProduto(txtNome.text, foto: imagem.image!, data: datePicker.date, codigoBarra: "", diasFaltando: diasFaltando)
-            criarNotificacao(ProdutoManager.sharedInstance.buscarProdutoNome(txtNome.text))
-            criarEventoCalendario(ProdutoManager.sharedInstance.buscarProdutoNome(txtNome.text))
+            produto.nome = txtNome.text
+            produto.dataValidade = datePicker.date
+            produto.diasFaltando = diasFaltando
+            produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
+//            ProdutoManager.sharedInstance.salvarNovoProduto(txtNome.text, foto: imagem.image!, data: datePicker.date, codigoBarra: "", diasFaltando: diasFaltando)
+            ProdutoManager.sharedInstance.salvarProduto()
+            criarNotificacao(produto)
+            criarEventoCalendario(produto)
             
+            self.tabBarController?.tabBar.hidden = false
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
         
     }
     
-    
-    func notif(prod: Produto, i: Int) -> UILocalNotification{
-        var localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Produto vencendo"
-        //falta pegar a quantidade na tela de configurações
-        var diasRestantes = 7 - i
-        var strNotif = "\(prod.nome)"
-        if diasRestantes == 0 {
-            localNotification.alertBody = "'\(strNotif)' vai vencer hoje!"
-        }
-        else if diasRestantes == 1 {
-            localNotification.alertBody = "Falta \(diasRestantes) dia para '\(strNotif)' vencer!"
-        }
-        else {
-            localNotification.alertBody = "Faltam \(diasRestantes) dias para '\(strNotif)' vencer!"
-        }
-        
-        let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0
-        var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
-        
-        let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
-        
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.applicationIconBadgeNumber = 1
-        
-        localNotification.fireDate = NSDate(timeInterval: intervalo, sinceDate: horario)
-        return localNotification
-    }
-    
     func criarNotificacao(prod: Produto) {
         for i in 0...7 {
-            UIApplication.sharedApplication().scheduleLocalNotification(notif(prod, i: i))
+            var localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Produto vencendo"
+            var diasRestantes = 7 - i
+            var strNotif = "\(prod.nome)"
+            if diasRestantes == 0 {
+                localNotification.alertBody = "'\(strNotif)' vai vencer hoje!"
+            }
+            else if diasRestantes == 1 {
+                localNotification.alertBody = "'\(strNotif)' vai vencer amanhã!"
+            }
+            else {
+                localNotification.alertBody = "Faltam \(diasRestantes) dias para '\(strNotif)' vencer!"
+            }
+            
+            let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0 * 24
+            var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
+            
+            let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
+            
+            localNotification.soundName = UILocalNotificationDefaultSoundName
+            localNotification.applicationIconBadgeNumber = 1
+            
+            localNotification.fireDate = NSDate(timeInterval: intervalo, sinceDate: horario)
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         }
+
     }
     
     func criarEventoCalendario(prod: Produto){

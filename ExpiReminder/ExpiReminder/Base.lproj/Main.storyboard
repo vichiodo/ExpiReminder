@@ -26,11 +26,15 @@
             </objects>
             <point key="canvasLocation" x="-207" y="563"/>
         </scene>
-        <!--Item-->
+        <!--Produtos-->
         <scene sceneID="7PT-1B-Gqf">
             <objects>
                 <navigationController id="9bG-pI-0Un" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2cs-et-chl"/>
+                    <tabBarItem key="tabBarItem" title="Produtos" image="List-32" id="2cs-et-chl">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="List Filled-32"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i0g-3g-BT1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -59,7 +63,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celProduto" rowHeight="64" id="LE0-O9-ofd" customClass="ProdutosTableViewCell" customModule="ExpiReminder" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellProduto" rowHeight="64" id="LE0-O9-ofd" customClass="ProdutosTableViewCell" customModule="ExpiReminder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LE0-O9-ofd" id="S4n-14-7gC">
@@ -106,12 +110,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dataValidade" destination="8ea-IS-yyD" id="7yr-6c-u4r"/>
-                                            <outlet property="diasRestantes" destination="cgC-rI-vMp" id="U63-2w-vij"/>
                                             <outlet property="lblDataValidade" destination="8ea-IS-yyD" id="d38-dz-GbW"/>
                                             <outlet property="lblDiasRestantes" destination="cgC-rI-vMp" id="ffb-qe-qve"/>
                                             <outlet property="lblNomeProduto" destination="AGz-q5-dwb" id="2ze-QV-rG2"/>
-                                            <outlet property="nomeProduto" destination="AGz-q5-dwb" id="Qyo-Vt-FYK"/>
                                             <segue destination="IIG-6W-0JD" kind="show" id="PBc-E7-xKw"/>
                                         </connections>
                                     </tableViewCell>
@@ -178,13 +179,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Item" id="PSa-tg-Jli">
+                                <barButtonItem image="Barcode Scanner-32" id="PSa-tg-Jli">
                                     <connections>
                                         <action selector="codigoBarra:" destination="Li2-Mt-VK8" id="oH0-jd-a5b"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="CNb-Ec-crA"/>
-                                <barButtonItem title="Item" systemItem="camera" id="xjm-7g-X7C">
+                                <barButtonItem systemItem="camera" id="xjm-7g-X7C">
                                     <connections>
                                         <action selector="camera:" destination="Li2-Mt-VK8" id="zYz-HR-zeL"/>
                                     </connections>
@@ -245,17 +246,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y35-wF-O2i" id="9P3-GU-AQ8">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qza-wQ-nqT">
-                                                    <rect key="frame" x="161" y="5" width="266" height="165"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendars" translatesAutoresizingMaskIntoConstraints="NO" id="qza-wQ-nqT">
+                                                    <rect key="frame" x="165" y="8" width="266" height="162"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="266" id="8XU-5P-HR5"/>
+                                                        <constraint firstAttribute="width" constant="266" id="jy2-fe-bpH"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="top" secondItem="9P3-GU-AQ8" secondAttribute="topMargin" constant="-3" id="BSr-H1-CEy"/>
-                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="centerY" secondItem="9P3-GU-AQ8" secondAttribute="centerY" constant="-2.25" id="GQF-Rg-dzv"/>
-                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="leading" secondItem="9P3-GU-AQ8" secondAttribute="leading" constant="161" id="lq9-LX-ub7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qza-wQ-nqT" secondAttribute="bottom" constant="1.5" id="5PX-qw-z5c"/>
+                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="top" secondItem="9P3-GU-AQ8" secondAttribute="topMargin" id="GXb-C9-N1U"/>
+                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="leading" secondItem="9P3-GU-AQ8" secondAttribute="leading" constant="165" id="YiI-6Z-qm5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -387,11 +388,15 @@
             </objects>
             <point key="canvasLocation" x="2267" y="-413"/>
         </scene>
-        <!--Item-->
+        <!--Calendário-->
         <scene sceneID="rNe-Yd-F7h">
             <objects>
                 <navigationController id="f2r-iM-a8a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IWl-th-PXh"/>
+                    <tabBarItem key="tabBarItem" title="Calendário" image="Calendar-32" id="IWl-th-PXh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Calendar Filled-32"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTW-tx-R6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -473,11 +478,15 @@
             </objects>
             <point key="canvasLocation" x="1532" y="1657"/>
         </scene>
-        <!--Item-->
+        <!--Configurações-->
         <scene sceneID="QtF-ln-aq5">
             <objects>
                 <navigationController id="p4x-HJ-2Tb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZlE-Md-0wq"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="Settings-32" id="ZlE-Md-0wq">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Settings Filled-32"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UMt-XZ-ogf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -491,4 +500,14 @@
             <point key="canvasLocation" x="730" y="1657"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Barcode Scanner-32" width="32" height="32"/>
+        <image name="Calendar Filled-32" width="32" height="32"/>
+        <image name="Calendar-32" width="32" height="32"/>
+        <image name="List Filled-32" width="32" height="32"/>
+        <image name="List-32" width="32" height="32"/>
+        <image name="Settings Filled-32" width="32" height="32"/>
+        <image name="Settings-32" width="32" height="32"/>
+        <image name="calendars" width="512" height="512"/>
+    </resources>
 </document>

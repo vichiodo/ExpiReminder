@@ -19,9 +19,15 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tabBarController?.tabBar.hidden = false
+        self.tableView.reloadData()
         print(produtos.count)
     
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,18 +39,27 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     // MARK: - Table view data source
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return produtos.count
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("produto", forIndexPath: indexPath) as! UITableViewCell
+        let cell: ProdutosTableViewCell = tableView.dequeueReusableCellWithIdentifier("cellProduto", forIndexPath: indexPath) as! ProdutosTableViewCell
+        
+//        var dataString: NSString = "\(produtos[indexPath.row].dataValidade)"
+//        var dateFormatter: NSDateFormatter = NSDateFormatter()
+//        dateFormatter.locale = NSLocale.currentLocale()
+//        dateFormatter.dateFormat = "dd/MM/yyyy"
+//        var myDate: NSDate = dateFormatter.dateFromString(dataString as String)!
 
-
+        cell.lblNomeProduto.text = produtos[indexPath.row].nome
+        cell.lblDataValidade.text = "8"
+        cell.lblDiasRestantes.text = "3"
+        
         return cell
     }
     
