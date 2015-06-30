@@ -19,6 +19,8 @@
 		447274331B41AFE0002F24E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447274321B41AFE0002F24E6 /* QuartzCore.framework */; };
 		447274351B41B004002F24E6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447274341B41B004002F24E6 /* EventKit.framework */; };
 		447274371B41B66F002F24E6 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447274361B41B66F002F24E6 /* ListaTableViewController.swift */; };
+		B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */; };
+		B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		447274321B41AFE0002F24E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		447274341B41B004002F24E6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		447274361B41B66F002F24E6 /* ListaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
+		B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verProdutoViewController.swift; sourceTree = "<group>"; };
+		B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			children = (
 				447274091B41ACC3002F24E6 /* AppDelegate.swift */,
 				447274361B41B66F002F24E6 /* ListaTableViewController.swift */,
+				B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */,
+				B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */,
 				447274101B41ACC3002F24E6 /* Main.storyboard */,
 				447274131B41ACC3002F24E6 /* Images.xcassets */,
 				447274151B41ACC3002F24E6 /* LaunchScreen.xib */,
@@ -237,6 +243,8 @@
 			files = (
 				4472740A1B41ACC3002F24E6 /* AppDelegate.swift in Sources */,
 				4472740D1B41ACC3002F24E6 /* ExpiReminder.xcdatamodeld in Sources */,
+				B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */,
+				B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */,
 				447274371B41B66F002F24E6 /* ListaTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +441,7 @@
 				447274281B41ACC3002F24E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		447274291B41ACC3002F24E6 /* Build configuration list for PBXNativeTarget "ExpiReminderTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +450,7 @@
 				4472742B1B41ACC3002F24E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
