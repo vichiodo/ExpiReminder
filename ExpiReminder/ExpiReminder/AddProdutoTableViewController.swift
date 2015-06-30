@@ -8,11 +8,14 @@
 
 import UIKit
 
-class AddProdutoTableViewController: UITableViewController {
+class AddProdutoTableViewController: UITableViewController, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var txtNome: UITextField!
     @IBOutlet weak var imagem: UIImageView!
+    
+    let imagePicker: UIImagePickerController = UIImagePickerController()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class AddProdutoTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = true
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +65,21 @@ class AddProdutoTableViewController: UITableViewController {
     */
     
     @IBAction func camera(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+            imagePicker.sourceType = .Camera
+        }
+        else{
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        imagePicker.allowsEditing = true
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        var imagemProduto:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.imagem.image = imagemProduto
         
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func codigoBarra(sender: AnyObject) {
@@ -73,7 +91,7 @@ class AddProdutoTableViewController: UITableViewController {
         
         
         
-        if txtNome == nil{
+        if txtNome.text == nil || txtNome.text == ""{
             let alerta: UIAlertController = UIAlertController(title: "Nome faltando", message: "Digite o nome do produto", preferredStyle: .Alert)
             let al1:UIAlertAction = UIAlertAction(title: "OK", style: .Default, handler: { (ACTION) -> Void in
                 txtNome.becomeFirstResponder()
@@ -82,17 +100,11 @@ class AddProdutoTableViewController: UITableViewController {
             self.presentViewController(alerta, animated: true, completion: nil)
         }
         else{
-            var produto = ProdutoManager.sharedInstance.novoProduto()
-            
-            produto.nome = txtNome.text
-            produto.dataValidade = datePicker.date
-            
             var dataAgora = NSDate()
             var convert: Int = Int(dataAgora.timeIntervalSinceDate(datePicker.date))
-            
-            produto.diasFaltando = convert - 86400
+            var diasFaltando = convert - 86400
 
-            ProdutoManager.sharedInstance.salvarProduto()
+            ProdutoManager.sharedInstance.salvarNovoProduto(txtNome.text, foto: imagem.image!, data: datePicker.date, codigoBarra: "", diasFaltando: diasFaltando)
             
             self.navigationController?.popToRootViewControllerAnimated(true)
         }

@@ -65,7 +65,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LE0-O9-ofd" id="S4n-14-7gC">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-q5-dwb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGz-q5-dwb">
                                                     <rect key="frame" x="27" y="8" width="243" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="243" id="tF7-9c-zp1"/>
@@ -74,7 +74,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30/06/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ea-IS-yyD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/06/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ea-IS-yyD">
                                                     <rect key="frame" x="27" y="37" width="129" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="129" id="QmS-WU-aZ4"/>
@@ -102,7 +102,7 @@
                                                 <constraint firstItem="8ea-IS-yyD" firstAttribute="top" secondItem="AGz-q5-dwb" secondAttribute="bottom" constant="5" id="le0-Ps-Fur"/>
                                                 <constraint firstItem="cgC-rI-vMp" firstAttribute="top" secondItem="S4n-14-7gC" secondAttribute="topMargin" constant="13" id="loW-k9-S9t"/>
                                                 <constraint firstItem="AGz-q5-dwb" firstAttribute="leading" secondItem="S4n-14-7gC" secondAttribute="leadingMargin" constant="19" id="pAo-tv-KZN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="8ea-IS-yyD" secondAttribute="bottom" constant="0.5" id="w53-Dt-wUx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8ea-IS-yyD" secondAttribute="bottom" constant="-2.5" id="w53-Dt-wUx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -170,8 +170,8 @@
         <scene sceneID="MkV-GE-yte">
             <objects>
                 <tableViewController id="Li2-Mt-VK8" customClass="AddProdutoTableViewController" customModule="ExpiReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eaM-dK-dQZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eaM-dK-dQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bAr-PM-px6">
@@ -194,24 +194,25 @@
                         <sections>
                             <tableViewSection headerTitle="Data de validade" id="qRk-5F-aD2">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="Agk-fF-HBu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="221" id="Agk-fF-HBu">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Agk-fF-HBu" id="gGY-LZ-O6n">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-cc-av1">
-                                                    <rect key="frame" x="164" y="8" width="273" height="132"/>
+                                                    <rect key="frame" x="156" y="8" width="289" height="177.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="273" id="S0l-LP-CM5"/>
+                                                        <constraint firstAttribute="width" constant="289" id="S0l-LP-CM5"/>
                                                     </constraints>
                                                     <date key="date" timeIntervalSinceReferenceDate="457295397.89493698">
                                                         <!--2015-06-29 18:29:57 +0000-->
                                                     </date>
+                                                    <locale key="locale" localeIdentifier="pt_BR"/>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ygX-cc-av1" firstAttribute="top" secondItem="gGY-LZ-O6n" secondAttribute="topMargin" id="1qH-nY-pEt"/>
-                                                <constraint firstItem="ygX-cc-av1" firstAttribute="centerX" secondItem="gGY-LZ-O6n" secondAttribute="centerX" id="t1O-SA-9gh"/>
+                                                <constraint firstItem="ygX-cc-av1" firstAttribute="centerX" secondItem="gGY-LZ-O6n" secondAttribute="centerX" constant="0.5" id="t1O-SA-9gh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -239,7 +240,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Foto" id="iga-oJ-nfA">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="y35-wF-O2i">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="y35-wF-O2i">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y35-wF-O2i" id="9P3-GU-AQ8">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -253,7 +254,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qza-wQ-nqT" firstAttribute="top" secondItem="9P3-GU-AQ8" secondAttribute="topMargin" constant="-3" id="BSr-H1-CEy"/>
-                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="centerY" secondItem="9P3-GU-AQ8" secondAttribute="centerY" id="GQF-Rg-dzv"/>
+                                                <constraint firstItem="qza-wQ-nqT" firstAttribute="centerY" secondItem="9P3-GU-AQ8" secondAttribute="centerY" constant="-2.25" id="GQF-Rg-dzv"/>
                                                 <constraint firstItem="qza-wQ-nqT" firstAttribute="leading" secondItem="9P3-GU-AQ8" secondAttribute="leading" constant="161" id="lq9-LX-ub7"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -266,7 +267,6 @@
                             <outlet property="delegate" destination="Li2-Mt-VK8" id="pll-C2-4nb"/>
                         </connections>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Novo Produto" id="FWQ-5b-GFI">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="Hhv-Hy-pZq">
                             <connections>
