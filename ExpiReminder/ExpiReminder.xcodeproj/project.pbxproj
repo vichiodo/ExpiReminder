@@ -22,6 +22,8 @@
 		44D26CEB1B42D15500380961 /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CEA1B42D15500380961 /* Produto.swift */; };
 		44D26CED1B42D19800380961 /* ProdutoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CEC1B42D19800380961 /* ProdutoManager.swift */; };
 		44D26CF31B42D48C00380961 /* AddProdutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */; };
+		B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */; };
+		B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		44D26CEA1B42D15500380961 /* Produto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
 		44D26CEC1B42D19800380961 /* ProdutoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutoManager.swift; sourceTree = "<group>"; };
 		44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProdutoTableViewController.swift; sourceTree = "<group>"; };
+		B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verProdutoViewController.swift; sourceTree = "<group>"; };
+		B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +113,6 @@
 				44D26CF01B42D41900380961 /* Views */,
 				44D26CEE1B42D3F700380961 /* CoreData */,
 				447274091B41ACC3002F24E6 /* AppDelegate.swift */,
-				447274361B41B66F002F24E6 /* ListaTableViewController.swift */,
-				B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */,
-				B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */,
 				447274101B41ACC3002F24E6 /* Main.storyboard */,
 				447274131B41ACC3002F24E6 /* Images.xcassets */,
 				447274151B41ACC3002F24E6 /* LaunchScreen.xib */,
@@ -158,6 +159,8 @@
 		44D26CF01B42D41900380961 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				447274361B41B66F002F24E6 /* ListaTableViewController.swift */,
+				B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */,
 				44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */,
 			);
 			name = Views;
@@ -166,6 +169,7 @@
 		44D26CF11B42D42400380961 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";

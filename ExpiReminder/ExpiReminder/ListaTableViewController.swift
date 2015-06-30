@@ -9,10 +9,6 @@
 import UIKit
 
 class ListaTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet weak var nomeProduto: UILabel!
-    @IBOutlet weak var dataValidadeProd: UILabel!
-    @IBOutlet weak var diasRestantes: UILabel!
 
     @IBOutlet weak var tableView: UITableView!
     

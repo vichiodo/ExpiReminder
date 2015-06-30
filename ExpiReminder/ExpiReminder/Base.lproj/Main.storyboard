@@ -125,7 +125,7 @@
                     <navigationItem key="navigationItem" title="Produto" id="VH2-bN-pb4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qtN-0a-7CA">
                             <connections>
-                                <segue destination="Li2-Mt-VK8" kind="show" id="k8k-Kg-ldh"/>
+                                <segue destination="Li2-Mt-VK8" kind="show" id="272-v9-p0F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -172,13 +172,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="o4x-sf-it4">
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bAr-PM-px6">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Item" id="m0h-hG-rgy"/>
-                                <barButtonItem style="plain" systemItem="flexibleSpace" id="NeP-1T-fDO"/>
-                                <barButtonItem systemItem="camera" id="WMI-gR-Ctd"/>
+                                <barButtonItem title="Item" id="PSa-tg-Jli">
+                                    <connections>
+                                        <action selector="codigoBarra:" destination="Li2-Mt-VK8" id="oH0-jd-a5b"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="CNb-Ec-crA"/>
+                                <barButtonItem title="Item" systemItem="camera" id="xjm-7g-X7C">
+                                    <connections>
+                                        <action selector="camera:" destination="Li2-Mt-VK8" id="zYz-HR-zeL"/>
+                                    </connections>
+                                </barButtonItem>
                             </items>
                         </toolbar>
                         <sections>
