@@ -15,6 +15,8 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     @IBOutlet weak var imagem: UIImageView!
     
     let imagePicker: UIImagePickerController = UIImagePickerController()
+    
+    var produto: Produto!
 
     
     override func viewDidLoad() {
