@@ -20,12 +20,15 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
     var produto: Produto!
+    
+    var codigoBarras:String!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recebeCodigoBarras:", name: "barCode", object: nil)
 
     }
     
@@ -85,13 +88,13 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     }
     
     @IBAction func codigoBarra(sender: AnyObject) {
-        
+        let barCodeVC = BarCodeViewController()
+        self.navigationController?.pushViewController(barCodeVC, animated: true)
     }
     
     @IBAction func salvar(sender: AnyObject) {
         
         var produto = ProdutoManager.sharedInstance.novoProduto()
-        
         
         if txtNome.text == nil || txtNome.text == ""{
             let alerta: UIAlertController = UIAlertController(title: "Nome faltando", message: "Digite o nome do produto", preferredStyle: .Alert)
@@ -168,6 +171,16 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
             }
         })
     }
+    
+    func recebeCodigoBarras(notification:NSNotification) {
+        var userInfo:NSDictionary = notification.userInfo!
+        var barCode:String = userInfo.objectForKey("barCode") as! String
+        codigoBarras = barCode
+        println("meu Codigo de barras: \(codigoBarras)")
+        
+    }
+    
+    
         /*
     // MARK: - Navigation
 

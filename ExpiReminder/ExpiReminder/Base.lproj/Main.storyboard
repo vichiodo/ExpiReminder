@@ -201,7 +201,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-cc-av1">
-                                                    <rect key="frame" x="156" y="8" width="289" height="177.5"/>
+                                                    <rect key="frame" x="156" y="8" width="289" height="178"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="289" id="S0l-LP-CM5"/>
                                                     </constraints>

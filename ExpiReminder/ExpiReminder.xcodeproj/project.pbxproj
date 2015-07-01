@@ -24,6 +24,8 @@
 		44D26CF31B42D48C00380961 /* AddProdutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */; };
 		B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */; };
 		B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */; };
+		E3B634C31B44684600748BBF /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C11B44684600748BBF /* BarCodeView.swift */; };
+		E3B634C41B44684600748BBF /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C21B44684600748BBF /* BarCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProdutoTableViewController.swift; sourceTree = "<group>"; };
 		B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verProdutoViewController.swift; sourceTree = "<group>"; };
 		B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutosTableViewCell.swift; sourceTree = "<group>"; };
+		E3B634C11B44684600748BBF /* BarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
+		E3B634C21B44684600748BBF /* BarCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 		44D26CF01B42D41900380961 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E3B634C01B4467E700748BBF /* BarCodeViewController */,
 				447274361B41B66F002F24E6 /* ListaTableViewController.swift */,
 				B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */,
 				44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */,
@@ -172,6 +177,15 @@
 				B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		E3B634C01B4467E700748BBF /* BarCodeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3B634C11B44684600748BBF /* BarCodeView.swift */,
+				E3B634C21B44684600748BBF /* BarCodeViewController.swift */,
+			);
+			name = BarCodeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B634C41B44684600748BBF /* BarCodeViewController.swift in Sources */,
 				44D26CED1B42D19800380961 /* ProdutoManager.swift in Sources */,
 				44D26CF31B42D48C00380961 /* AddProdutoTableViewController.swift in Sources */,
 				4472740A1B41ACC3002F24E6 /* AppDelegate.swift in Sources */,
 				44D26CEB1B42D15500380961 /* Produto.swift in Sources */,
+				E3B634C31B44684600748BBF /* BarCodeView.swift in Sources */,
 				4472740D1B41ACC3002F24E6 /* ExpiReminder.xcdatamodeld in Sources */,
 				B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */,
 				B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */,
