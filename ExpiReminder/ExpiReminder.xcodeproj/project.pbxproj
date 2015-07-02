@@ -26,6 +26,7 @@
 		B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */; };
 		E3B634C31B44684600748BBF /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C11B44684600748BBF /* BarCodeView.swift */; };
 		E3B634C41B44684600748BBF /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C21B44684600748BBF /* BarCodeViewController.swift */; };
+		E3B634C61B45AB0A00748BBF /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C51B45AB0A00748BBF /* ConfigTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutosTableViewCell.swift; sourceTree = "<group>"; };
 		E3B634C11B44684600748BBF /* BarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		E3B634C21B44684600748BBF /* BarCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
+		E3B634C51B45AB0A00748BBF /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				447274361B41B66F002F24E6 /* ListaTableViewController.swift */,
 				B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */,
 				44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */,
+				E3B634C51B45AB0A00748BBF /* ConfigTableViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				4472740D1B41ACC3002F24E6 /* ExpiReminder.xcdatamodeld in Sources */,
 				B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */,
 				B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */,
+				E3B634C61B45AB0A00748BBF /* ConfigTableViewController.swift in Sources */,
 				447274371B41B66F002F24E6 /* ListaTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

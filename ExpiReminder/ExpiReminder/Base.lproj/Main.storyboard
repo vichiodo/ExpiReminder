@@ -201,7 +201,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-cc-av1">
-                                                    <rect key="frame" x="156" y="8" width="289" height="178"/>
+                                                    <rect key="frame" x="156" y="8" width="289" height="177.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="289" id="S0l-LP-CM5"/>
                                                     </constraints>
@@ -412,7 +412,7 @@
         <!--Configurações-->
         <scene sceneID="3c0-MX-8HN">
             <objects>
-                <tableViewController id="PiW-gM-Bjr" sceneMemberID="viewController">
+                <tableViewController id="PiW-gM-Bjr" customClass="ConfigTableViewController" customModule="ExpiReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FBj-JW-n9X">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,6 +436,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9UI-RZ-iXd">
                                                     <rect key="frame" x="512" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="alertaSwitch:" destination="PiW-gM-Bjr" eventType="valueChanged" id="Is3-tT-UXd"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -447,21 +450,176 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Tm2-pg-4sc">
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Alerta" id="OL7-0A-lUp">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="j4f-CC-ktH">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tm2-pg-4sc" id="Pov-ab-63X">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j4f-CC-ktH" id="3OL-TC-I4l">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dias para o alerta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBv-dq-zSM">
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aSa-Hq-DVs">
+                                                    <rect key="frame" x="444" y="7" width="118" height="31"/>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-dL-ZKs">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="31" id="dQY-C9-ojn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="dQY-C9-ojn"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="dQY-C9-ojn"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dias para o alerta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-PD-zX9">
                                                     <rect key="frame" x="20" y="11" width="149" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="EI9-mM-lrn"/>
+                                                        <constraint firstAttribute="width" constant="149" id="yen-2B-X0i"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="EI9-mM-lrn"/>
+                                                            <exclude reference="yen-2B-X0i"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="EI9-mM-lrn"/>
+                                                            <include reference="yen-2B-X0i"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BzS-Kn-3d8">
-                                                    <rect key="frame" x="444" y="7" width="118" height="31"/>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="yk3-dL-ZKs" secondAttribute="centerY" id="6kP-bt-UJL"/>
+                                                <constraint firstAttribute="centerX" secondItem="hYU-PD-zX9" secondAttribute="centerX" constant="105.5" id="EmL-Ui-QpO"/>
+                                                <constraint firstAttribute="centerY" secondItem="hYU-PD-zX9" secondAttribute="centerY" id="SRS-q8-Mqt"/>
+                                                <constraint firstAttribute="centerX" secondItem="yk3-dL-ZKs" secondAttribute="centerX" constant="-132.5" id="VHe-24-ZkD"/>
+                                                <constraint firstAttribute="centerY" secondItem="yk3-dL-ZKs" secondAttribute="centerY" id="gjp-d5-SD9"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="yk3-dL-ZKs"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="EmL-Ui-QpO"/>
+                                                    <exclude reference="SRS-q8-Mqt"/>
+                                                    <exclude reference="6kP-bt-UJL"/>
+                                                    <exclude reference="VHe-24-ZkD"/>
+                                                    <exclude reference="gjp-d5-SD9"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="yk3-dL-ZKs"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="EmL-Ui-QpO"/>
+                                                    <include reference="SRS-q8-Mqt"/>
+                                                    <include reference="6kP-bt-UJL"/>
+                                                    <include reference="VHe-24-ZkD"/>
+                                                    <include reference="gjp-d5-SD9"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Uom-Jz-vRN">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uom-Jz-vRN" id="dTv-dl-oE3">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade de dias: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-zD-gQW">
+                                                    <rect key="frame" x="20" y="11" width="149" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="160" id="CvH-IQ-hRa"/>
+                                                        <constraint firstAttribute="height" constant="21" id="eim-ue-mZD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="CvH-IQ-hRa"/>
+                                                            <exclude reference="eim-ue-mZD"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="CvH-IQ-hRa"/>
+                                                            <include reference="eim-ue-mZD"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ypd-ml-ANp">
+                                                    <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="0ln-Rz-2Qb"/>
+                                                        <constraint firstAttribute="width" constant="144" id="SaM-0e-zaN"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="0ln-Rz-2Qb"/>
+                                                            <exclude reference="SaM-0e-zaN"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="0ln-Rz-2Qb"/>
+                                                            <include reference="SaM-0e-zaN"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="diasSlider:" destination="PiW-gM-Bjr" eventType="valueChanged" id="ES5-al-lIh"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="Ypd-ml-ANp" secondAttribute="centerY" constant="-0.5" id="DEZ-hY-7PO"/>
+                                                <constraint firstAttribute="centerY" secondItem="yG6-zD-gQW" secondAttribute="centerY" id="bnZ-2e-eeL"/>
+                                                <constraint firstAttribute="centerX" secondItem="Ypd-ml-ANp" secondAttribute="centerX" constant="-117.5" id="gdS-gA-uFl"/>
+                                                <constraint firstItem="Ypd-ml-ANp" firstAttribute="trailing" secondItem="dTv-dl-oE3" secondAttribute="trailingMargin" id="opW-dP-3Rq"/>
+                                                <constraint firstAttribute="centerX" secondItem="yG6-zD-gQW" secondAttribute="centerX" constant="100" id="zOC-Mp-vi2"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="yG6-zD-gQW"/>
+                                                    <exclude reference="Ypd-ml-ANp"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="bnZ-2e-eeL"/>
+                                                    <exclude reference="zOC-Mp-vi2"/>
+                                                    <exclude reference="DEZ-hY-7PO"/>
+                                                    <exclude reference="gdS-gA-uFl"/>
+                                                    <exclude reference="opW-dP-3Rq"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="yG6-zD-gQW"/>
+                                                    <include reference="Ypd-ml-ANp"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="bnZ-2e-eeL"/>
+                                                    <include reference="zOC-Mp-vi2"/>
+                                                    <include reference="DEZ-hY-7PO"/>
+                                                    <include reference="gdS-gA-uFl"/>
+                                                    <include reference="opW-dP-3Rq"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -473,10 +631,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Configurações" id="N9P-S0-7oa"/>
+                    <connections>
+                        <outlet property="diasAlertaLabel" destination="yk3-dL-ZKs" id="TiK-2A-CD6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vX5-hE-mWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="1657"/>
+            <point key="canvasLocation" x="1531.5" y="1656.75"/>
         </scene>
         <!--Configurações-->
         <scene sceneID="QtF-ln-aq5">
