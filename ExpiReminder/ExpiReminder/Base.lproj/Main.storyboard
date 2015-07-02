@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -481,7 +482,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dias para o alerta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-PD-zX9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dias para o alerta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-PD-zX9">
                                                     <rect key="frame" x="20" y="11" width="149" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="EI9-mM-lrn"/>
@@ -516,11 +517,11 @@
                                                     <exclude reference="yk3-dL-ZKs"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="EmL-Ui-QpO"/>
-                                                    <exclude reference="SRS-q8-Mqt"/>
                                                     <exclude reference="6kP-bt-UJL"/>
                                                     <exclude reference="VHe-24-ZkD"/>
                                                     <exclude reference="gjp-d5-SD9"/>
+                                                    <exclude reference="EmL-Ui-QpO"/>
+                                                    <exclude reference="SRS-q8-Mqt"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -528,11 +529,11 @@
                                                     <include reference="yk3-dL-ZKs"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="EmL-Ui-QpO"/>
-                                                    <include reference="SRS-q8-Mqt"/>
                                                     <include reference="6kP-bt-UJL"/>
                                                     <include reference="VHe-24-ZkD"/>
                                                     <include reference="gjp-d5-SD9"/>
+                                                    <include reference="EmL-Ui-QpO"/>
+                                                    <include reference="SRS-q8-Mqt"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -542,7 +543,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uom-Jz-vRN" id="dTv-dl-oE3">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade de dias: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-zD-gQW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade de dias: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-zD-gQW">
                                                     <rect key="frame" x="20" y="11" width="149" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="160" id="CvH-IQ-hRa"/>
@@ -568,18 +569,16 @@
                                                     <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="0ln-Rz-2Qb"/>
-                                                        <constraint firstAttribute="width" constant="144" id="SaM-0e-zaN"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="0ln-Rz-2Qb"/>
-                                                            <exclude reference="SaM-0e-zaN"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="246" y="7" width="148" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="0ln-Rz-2Qb"/>
-                                                            <include reference="SaM-0e-zaN"/>
                                                         </mask>
                                                     </variation>
                                                     <connections>
@@ -600,11 +599,11 @@
                                                     <exclude reference="Ypd-ml-ANp"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="bnZ-2e-eeL"/>
-                                                    <exclude reference="zOC-Mp-vi2"/>
                                                     <exclude reference="DEZ-hY-7PO"/>
                                                     <exclude reference="gdS-gA-uFl"/>
                                                     <exclude reference="opW-dP-3Rq"/>
+                                                    <exclude reference="bnZ-2e-eeL"/>
+                                                    <exclude reference="zOC-Mp-vi2"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -613,11 +612,11 @@
                                                     <include reference="Ypd-ml-ANp"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="bnZ-2e-eeL"/>
-                                                    <include reference="zOC-Mp-vi2"/>
                                                     <include reference="DEZ-hY-7PO"/>
                                                     <include reference="gdS-gA-uFl"/>
                                                     <include reference="opW-dP-3Rq"/>
+                                                    <include reference="bnZ-2e-eeL"/>
+                                                    <include reference="zOC-Mp-vi2"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

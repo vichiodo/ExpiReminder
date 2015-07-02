@@ -20,16 +20,18 @@ class ConfigTableViewController: UITableViewController {
     @IBAction func alertaSwitch(sender: AnyObject) {
         var mySwitch = sender as! UISwitch
             estaAtivo = mySwitch.on
+        
         self.tableView.reloadData()
     }
     
     //slider que controla a quantidade de dias
     @IBAction func diasSlider(sender: AnyObject) {
         println(sender.value as Float)
-        diasAlertaLabel.text = "\(sender.value as Float)"
+        diasAlertaLabel.text = "\(Int(round(sender.value as Float)))"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         estaAtivo = true
         
         

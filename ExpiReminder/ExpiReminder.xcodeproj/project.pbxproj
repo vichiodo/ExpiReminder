@@ -27,6 +27,7 @@
 		E3B634C31B44684600748BBF /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C11B44684600748BBF /* BarCodeView.swift */; };
 		E3B634C41B44684600748BBF /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C21B44684600748BBF /* BarCodeViewController.swift */; };
 		E3B634C61B45AB0A00748BBF /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C51B45AB0A00748BBF /* ConfigTableViewController.swift */; };
+		E3B634C91B45CEDB00748BBF /* UsuarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B634C81B45CEDB00748BBF /* UsuarioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E3B634C11B44684600748BBF /* BarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		E3B634C21B44684600748BBF /* BarCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		E3B634C51B45AB0A00748BBF /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
+		E3B634C81B45CEDB00748BBF /* UsuarioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		447274061B41ACC3002F24E6 /* ExpiReminder */ = {
 			isa = PBXGroup;
 			children = (
+				E3B634C71B45CEC000748BBF /* User */,
 				44D26CF11B42D42400380961 /* Cells */,
 				44D26CF01B42D41900380961 /* Views */,
 				44D26CEE1B42D3F700380961 /* CoreData */,
@@ -189,6 +192,14 @@
 				E3B634C21B44684600748BBF /* BarCodeViewController.swift */,
 			);
 			name = BarCodeViewController;
+			sourceTree = "<group>";
+		};
+		E3B634C71B45CEC000748BBF /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E3B634C81B45CEDB00748BBF /* UsuarioManager.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 			files = (
 				E3B634C41B44684600748BBF /* BarCodeViewController.swift in Sources */,
 				44D26CED1B42D19800380961 /* ProdutoManager.swift in Sources */,
+				E3B634C91B45CEDB00748BBF /* UsuarioManager.swift in Sources */,
 				44D26CF31B42D48C00380961 /* AddProdutoTableViewController.swift in Sources */,
 				4472740A1B41ACC3002F24E6 /* AppDelegate.swift in Sources */,
 				44D26CEB1B42D15500380961 /* Produto.swift in Sources */,
