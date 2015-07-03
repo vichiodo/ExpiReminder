@@ -28,6 +28,7 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
 
     override func viewDidAppear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
+        produtos = ProdutoManager.sharedInstance.buscarProdutos()
         self.tableView.reloadData()
     }
 

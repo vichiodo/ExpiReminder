@@ -35,9 +35,9 @@ class verProdutoViewController: UIViewController {
         var dataValidade = NSDateFormatter()
         dataValidade.dateFormat = "dd/MM/yyyy"
         var dataString = dataValidade.stringFromDate(produto[i].dataValidade)
+        
         lblDataValidade.text = dataString
-        
-        
+        imgProduto.image = UIImage(data: produto[i].foto)
         lblDiasRestantes.text = "\(produto[i].diasFaltando)"
     }
 

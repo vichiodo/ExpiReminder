@@ -107,17 +107,18 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
         else{
             var dataAgora = NSDate()
             var convert: Int = Int(dataAgora.timeIntervalSinceDate(datePicker.date))
-            var diasFaltando = convert - 86400
+            var diasFaltando = 1+(convert/86400)*(-1)
     
             produto.nome = txtNome.text
             produto.dataValidade = datePicker.date
             produto.diasFaltando = diasFaltando
             produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
-//            ProdutoManager.sharedInstance.salvarNovoProduto(txtNome.text, foto: imagem.image!, data: datePicker.date, codigoBarra: "", diasFaltando: diasFaltando)
+            //produto.codigoBarra = codigoBarras
             ProdutoManager.sharedInstance.salvarProduto()
+            
             criarNotificacao(produto)
             criarEventoCalendario(produto)
-            
+                        
             self.tabBarController?.tabBar.hidden = false
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
