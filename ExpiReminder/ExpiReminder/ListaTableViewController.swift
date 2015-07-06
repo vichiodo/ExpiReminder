@@ -12,21 +12,23 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     
-    
-    lazy var produtos:Array<Produto> = {
+        lazy var produtos:Array<Produto> = {
         return ProdutoManager.sharedInstance.buscarProdutos()
         }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.hidden = false
-        self.tableView.reloadData()
+        tableView.delegate = self
+        tableView.dataSource = self
+        produtos = ProdutoManager.sharedInstance.buscarProdutos()
+        //self.tabBarController?.tabBar.hidden = false
         print(produtos.count)
     
     }
 
     override func viewDidAppear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
+        produtos = ProdutoManager.sharedInstance.buscarProdutos()
         self.tableView.reloadData()
     }
 
@@ -43,7 +45,7 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return produtos.count
+            return produtos.count
     }
 
     
@@ -63,6 +65,15 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "verProduto" {
+            let VC = segue.destinationViewController as! verProdutoViewController
+            let cell = sender as? UITableViewCell
+            VC.i = tableView.indexPathForCell(cell!)!.row
+        }
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

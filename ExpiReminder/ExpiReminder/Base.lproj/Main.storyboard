@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWW-jS-GdP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hWW-jS-GdP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -114,7 +114,7 @@
                                             <outlet property="lblDataValidade" destination="8ea-IS-yyD" id="d38-dz-GbW"/>
                                             <outlet property="lblDiasRestantes" destination="cgC-rI-vMp" id="ffb-qe-qve"/>
                                             <outlet property="lblNomeProduto" destination="AGz-q5-dwb" id="2ze-QV-rG2"/>
-                                            <segue destination="IIG-6W-0JD" kind="show" id="PBc-E7-xKw"/>
+                                            <segue destination="IIG-6W-0JD" kind="show" identifier="verProduto" id="PBc-E7-xKw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -309,9 +309,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nomeProduto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgW-Ij-8hf">
-                                <rect key="frame" x="137" y="395" width="105" height="21"/>
+                                <rect key="frame" x="137" y="395" width="435" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="dLq-Fi-ArF"/>
+                                    <constraint firstAttribute="width" constant="435" id="dLq-Fi-ArF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -326,8 +326,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30/06/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an7-zz-S4Q">
-                                <rect key="frame" x="200" y="449" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30/06/2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an7-zz-S4Q">
+                                <rect key="frame" x="200" y="449" width="384" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -342,15 +342,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 dias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctm-GK-Iv4">
-                                <rect key="frame" x="168" y="507" width="47" height="21"/>
+                                <rect key="frame" x="168" y="507" width="411" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="47" id="L9l-bB-ulr"/>
+                                    <constraint firstAttribute="width" constant="411" id="L9l-bB-ulr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6x-GD-t5i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6x-GD-t5i">
                                 <rect key="frame" x="137" y="95" width="327" height="242"/>
                             </imageView>
                         </subviews>

@@ -15,6 +15,8 @@ class verProdutoViewController: UIViewController {
     @IBOutlet weak var lblDataValidade: UILabel!
     @IBOutlet weak var lblDiasRestantes: UILabel!
     
+    var i : Int!
+    
     var produto: Array<Produto>!
     
     override func viewDidLoad() {
@@ -28,9 +30,15 @@ class verProdutoViewController: UIViewController {
     
     func preencherLabel() {
         produto = ProdutoManager.sharedInstance.buscarProdutos()
-        lblNomeProduto.text = produto[0].nome
-        lblDataValidade.text = "\(produto[0].dataValidade)"
-        lblDiasRestantes.text = "\(produto[0].diasFaltando)"
+        lblNomeProduto.text = produto[i].nome
+        
+        var dataValidade = NSDateFormatter()
+        dataValidade.dateFormat = "dd/MM/yyyy"
+        var dataString = dataValidade.stringFromDate(produto[i].dataValidade)
+        
+        lblDataValidade.text = dataString
+        imgProduto.image = UIImage(data: produto[i].foto)
+        lblDiasRestantes.text = "\(produto[i].diasFaltando)"
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
