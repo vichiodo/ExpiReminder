@@ -10,16 +10,27 @@ import UIKit
 
 class ConfigTableViewController: UITableViewController {
     
+    //UsuarioManager
+    var usuarioManager = UsuarioManager.sharedInstance
+    
     //flag pra indicar se o switch de ativo ou não funciona!
     var estaAtivo:Bool!
     
+    @IBOutlet weak var alertaUISwitch: UISwitch!
     //indicador de dias
     @IBOutlet weak var diasAlertaLabel: UILabel!
+    
+    @IBOutlet weak var diasAlertaSlider: UISlider!
+    
+    @IBOutlet weak var horarioDatePicker: UIDatePicker!
+    
     
     //switch de ativo ou não
     @IBAction func alertaSwitch(sender: AnyObject) {
         var mySwitch = sender as! UISwitch
             estaAtivo = mySwitch.on
+            usuarioManager.setAlerta(estaAtivo)
+
         
         self.tableView.reloadData()
     }
@@ -28,11 +39,29 @@ class ConfigTableViewController: UITableViewController {
     @IBAction func diasSlider(sender: AnyObject) {
         println(sender.value as Float)
         diasAlertaLabel.text = "\(Int(round(sender.value as Float)))"
+        usuarioManager.setDiasAlerta(Int(round(sender.value as Float)))
     }
+    @IBAction func tempoNotification(sender: AnyObject) {
+       let date = sender as! UIDatePicker
+       usuarioManager.setHorarioNotificacao(date.date)
+    }
+    
+    func configInitialize() {
+        diasAlertaLabel.text = "\(usuarioManager.getDiasAlerta())"
+        estaAtivo = usuarioManager.getAlerta()
+        alertaUISwitch.setOn(estaAtivo, animated: false)
+        //olhar aqui direito
+        horarioDatePicker.setDate(usuarioManager.getHorarioNotificacao(), animated: false)
+        diasAlertaSlider.value = Float(usuarioManager.getDiasAlerta())
+        
+        
+        self.tableView.reloadData()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        estaAtivo = true
         
         
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -41,6 +70,10 @@ class ConfigTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.configInitialize()
     }
 
     // MARK: - Table view data source
@@ -64,7 +97,7 @@ class ConfigTableViewController: UITableViewController {
             case 0:
                 return 1
             case 1:
-                return 2
+                return 3
             default:
                 return 0
             }

@@ -32,4 +32,20 @@ class UsuarioManager: NSObject {
         return defaults.integerForKey("diasAlerta") as Int
     }
     
+    func setHorarioNotificacao(sender:NSDate) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(sender, forKey: "horarioNotificacao")
+    }
+    
+    func getHorarioNotificacao() -> NSDate {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if !(defaults.valueForKey("horarioNotificacao") != nil) {
+            return NSDate()
+        }
+        else {
+            return defaults.valueForKey("horarioNotificacao") as! NSDate
+        }
+    }
+    
+    
 }

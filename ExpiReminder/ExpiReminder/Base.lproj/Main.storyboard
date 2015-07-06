@@ -469,7 +469,7 @@
                                                         <constraint firstAttribute="width" constant="31" id="dQY-C9-ojn"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -575,8 +575,7 @@
                                                             <exclude reference="0ln-Rz-2Qb"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="246" y="7" width="148" height="31"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="0ln-Rz-2Qb"/>
                                                         </mask>
@@ -621,6 +620,61 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="238" id="da6-oz-Wkm">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="da6-oz-Wkm" id="B6n-xD-F2y">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZNW-dM-9WQ">
+                                                    <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="221" id="HKc-sZ-ZLo"/>
+                                                        <constraint firstAttribute="width" constant="384" id="wDP-cU-TX1"/>
+                                                    </constraints>
+                                                    <date key="date" timeIntervalSinceReferenceDate="457900138.721937">
+                                                        <!--2015-07-06 18:28:58 +0000-->
+                                                    </date>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="HKc-sZ-ZLo"/>
+                                                            <exclude reference="wDP-cU-TX1"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="HKc-sZ-ZLo"/>
+                                                            <include reference="wDP-cU-TX1"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="tempoNotification:" destination="PiW-gM-Bjr" eventType="valueChanged" id="qc5-NR-wcu"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="ZNW-dM-9WQ" secondAttribute="centerX" id="T4X-fR-681"/>
+                                                <constraint firstAttribute="centerY" secondItem="ZNW-dM-9WQ" secondAttribute="centerY" id="rQ3-9T-W0w"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="ZNW-dM-9WQ"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="T4X-fR-681"/>
+                                                    <exclude reference="rQ3-9T-W0w"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="ZNW-dM-9WQ"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="T4X-fR-681"/>
+                                                    <include reference="rQ3-9T-W0w"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -631,7 +685,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Configurações" id="N9P-S0-7oa"/>
                     <connections>
+                        <outlet property="alertaUISwitch" destination="9UI-RZ-iXd" id="v5P-pw-m8d"/>
                         <outlet property="diasAlertaLabel" destination="yk3-dL-ZKs" id="TiK-2A-CD6"/>
+                        <outlet property="diasAlertaSlider" destination="Ypd-ml-ANp" id="EQy-ne-eet"/>
+                        <outlet property="horarioDatePicker" destination="ZNW-dM-9WQ" id="Qun-QW-N6z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vX5-hE-mWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
