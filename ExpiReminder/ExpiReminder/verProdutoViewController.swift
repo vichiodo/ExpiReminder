@@ -17,7 +17,7 @@ class verProdutoViewController: UITableViewController {
     
     @IBOutlet weak var backgroundView: UIView!
 
-    var i : Int! = 0
+    var i : Int! = 1
     
     var produto: Array<Produto>!
     

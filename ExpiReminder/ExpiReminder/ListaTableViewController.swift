@@ -57,20 +57,29 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        produtos = ProdutoManager.sharedInstance.buscarProdutos()
+        
         let cell: ProdutosTableViewCell = tableView.dequeueReusableCellWithIdentifier("cellProduto", forIndexPath: indexPath) as! ProdutosTableViewCell
         
-//        let dataString: String = "\(produtos[indexPath.row].dataValidade)"
-//        let dateFormatter: NSDateFormatter = NSDateFormatter()
-//        dateFormatter.locale = NSLocale.currentLocale()
-//        dateFormatter.dateFormat = "dd-MM-yyyy"
-//        let myDate: NSDate = dateFormatter.dateFromString(dataString)!
-
+        let dataString: String = "\(produtos[indexPath.row].dataValidade)"
+        let dateFormatter: NSDateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let myDate: String = dateFormatter.stringFromDate(produtos[indexPath.row].dataValidade)
+        let data: String = dateFormatter.stringFromDate(NSDate())
+        
         cell.lblNomeProduto.text = produtos[indexPath.row].nome
-        cell.lblDataValidade.text = "\(produtos[indexPath.row].dataValidade)"
+        cell.lblDataValidade.text = "\(myDate)"
         
         var dataAgora = NSDate()
-        var convert: Int = Int(dataAgora.timeIntervalSinceDate(produtos[indexPath.row].dataValidade))
-        var diasFaltando = 1+(convert/86400)*(-1)
+        var diasFaltando: Int!
+        if data == myDate {
+            diasFaltando = 0
+        }
+        else {
+            var convert: Int = Int(dataAgora.timeIntervalSinceDate(produtos[indexPath.row].dataValidade))
+            diasFaltando = 1+(convert/86400)*(-1)
+        }
         
         switch diasFaltando{
         case -1:
