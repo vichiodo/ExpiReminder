@@ -62,10 +62,7 @@ class ConfigTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -87,7 +84,6 @@ class ConfigTableViewController: UITableViewController {
             return 1
         }
     }
-    
     
     //controla o numero de rows, sendo que ativo mostra tudo e desativado só o UISwitch
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -71,7 +71,7 @@ class ProdutoManager {
         }
     }
     
-    func removerJogador(index: Int) {
+    func removerProduto(index: Int) {
         var arrayProd: Array<Produto> = buscarProdutos()
         managedContext.deleteObject(arrayProd[index] as NSManagedObject)
         salvarProduto()
@@ -85,7 +85,6 @@ class ProdutoManager {
         produto.setValue(imagem, forKey: "foto")
         produto.setValue(data, forKey: "dataValidade")
         produto.setValue(codigoBarra, forKey: "codigoBarra")
-        produto.setValue(diasFaltando, forKey: "diasFaltando")
         salvarProduto()
     }
     

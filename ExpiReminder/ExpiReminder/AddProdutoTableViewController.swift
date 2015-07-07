@@ -9,11 +9,13 @@
 import UIKit
 import EventKit
 
-class AddProdutoTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddProdutoTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var txtNome: UITextField!
     @IBOutlet weak var imagem: UIImageView!
+    
+    let usuarioManager = UsuarioManager.sharedInstance
     
     var eventStore: EKEventStore = EKEventStore()
     
@@ -26,8 +28,9 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        self.imagePicker.delegate = self
+        self.imagePicker.allowsEditing = true
+        self.txtNome.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recebeCodigoBarras:", name: "barCode", object: nil)
 
     }
@@ -111,13 +114,14 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     
             produto.nome = txtNome.text
             produto.dataValidade = datePicker.date
-            produto.diasFaltando = diasFaltando
             produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
             //produto.codigoBarra = codigoBarras
             ProdutoManager.sharedInstance.salvarProduto()
             
-            criarNotificacao(produto)
-            criarEventoCalendario(produto)
+            if usuarioManager.getAlerta() == true {
+                criarNotificacao(produto)
+                criarEventoCalendario(produto)
+            }
                         
             self.tabBarController?.tabBar.hidden = false
             self.navigationController?.popToRootViewControllerAnimated(true)
@@ -126,7 +130,7 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     }
     
     func criarNotificacao(prod: Produto) {
-        for i in 0...7 {
+        for i in 0...usuarioManager.getDiasAlerta() {
             var localNotification:UILocalNotification = UILocalNotification()
             localNotification.alertAction = "Produto vencendo"
             var diasRestantes = 7 - i
@@ -158,7 +162,8 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     func criarEventoCalendario(prod: Produto){
         var evento: EKEvent = EKEvent(eventStore: eventStore)
         
-        evento.title = "\(prod.nome)"
+        evento.title = "\(prod.nome) vai vencer nesse dia!"
+        
         evento.startDate = prod.dataValidade
         evento.endDate = NSDate(timeInterval: 3600, sinceDate: evento.startDate)
         
@@ -181,8 +186,12 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
-        /*
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

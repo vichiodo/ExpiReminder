@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class ListaTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -16,8 +17,14 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         return ProdutoManager.sharedInstance.buscarProdutos()
         }()
     
+    var eventStore: EKEventStore!
+
+    
+    let usuarioManager = UsuarioManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventStore = EKEventStore()
         tableView.delegate = self
         tableView.dataSource = self
         produtos = ProdutoManager.sharedInstance.buscarProdutos()
@@ -52,16 +59,35 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: ProdutosTableViewCell = tableView.dequeueReusableCellWithIdentifier("cellProduto", forIndexPath: indexPath) as! ProdutosTableViewCell
         
-//        var dataString: NSString = "\(produtos[indexPath.row].dataValidade)"
-//        var dateFormatter: NSDateFormatter = NSDateFormatter()
+//        let dataString: String = "\(produtos[indexPath.row].dataValidade)"
+//        let dateFormatter: NSDateFormatter = NSDateFormatter()
 //        dateFormatter.locale = NSLocale.currentLocale()
-//        dateFormatter.dateFormat = "dd/MM/yyyy"
-//        var myDate: NSDate = dateFormatter.dateFromString(dataString as String)!
+//        dateFormatter.dateFormat = "dd-MM-yyyy"
+//        let myDate: NSDate = dateFormatter.dateFromString(dataString)!
 
         cell.lblNomeProduto.text = produtos[indexPath.row].nome
-        cell.lblDataValidade.text = "8"
-        cell.lblDiasRestantes.text = "3"
+        cell.lblDataValidade.text = "\(produtos[indexPath.row].dataValidade)"
         
+        var dataAgora = NSDate()
+        var convert: Int = Int(dataAgora.timeIntervalSinceDate(produtos[indexPath.row].dataValidade))
+        var diasFaltando = 1+(convert/86400)*(-1)
+        
+        switch diasFaltando{
+        case -1:
+            ProdutoManager.sharedInstance.removerProduto(indexPath.row)
+        case 0:
+            cell.lblDiasRestantes.text = "Vence hoje!"
+            cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 15)
+            cell.lblDiasRestantes.textColor = UIColor.redColor()
+        case 1:
+            cell.lblDiasRestantes.text = "Vence amanhã!"
+            cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 15)
+            cell.lblDiasRestantes.textColor = UIColor.redColor()
+        default:
+            cell.lblDiasRestantes.text = "\(diasFaltando) dias para vencer!"
+            cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 14)
+            cell.lblDiasRestantes.textColor = UIColor.blueColor()
+        }
         return cell
     }
     
@@ -74,26 +100,59 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
 
-
-    /*
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {            
+            cancelarNotificacao(produtos[indexPath.row])
+            excluirEventoCalendario(produtos[indexPath.row])
+            ProdutoManager.sharedInstance.removerProduto(indexPath.row)
+        }
+        
+        self.tableView.reloadData()
     }
-    */
+
+    func cancelarNotificacao(prod: Produto) {
+        for i in 0...usuarioManager.getDiasAlerta() {
+            var localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Produto vencendo"
+            var diasRestantes = 7 - i
+            var strNotif = "\(prod.nome)"
+            if diasRestantes == 0 {
+                localNotification.alertBody = "'\(strNotif)' vai vencer hoje!"
+            }
+            else if diasRestantes == 1 {
+                localNotification.alertBody = "'\(strNotif)' vai vencer amanhã!"
+            }
+            else {
+                localNotification.alertBody = "Faltam \(diasRestantes) dias para '\(strNotif)' vencer!"
+            }
+            
+            let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0 * 24
+            var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
+            
+            let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
+            
+            localNotification.soundName = UILocalNotificationDefaultSoundName
+            localNotification.applicationIconBadgeNumber = 1
+            
+            localNotification.fireDate = NSDate(timeInterval: intervalo, sinceDate: horario)
+            UIApplication.sharedApplication().cancelLocalNotification(localNotification)
+        }
+    }
+
+    func excluirEventoCalendario(prod: Produto){
+        var endData: NSDate = NSDate(timeInterval: 3600, sinceDate: prod.dataValidade)
+        var predicate = eventStore.predicateForEventsWithStartDate(prod.dataValidade, endDate: endData, calendars:[eventStore.defaultCalendarForNewEvents])
+        
+        var eventos = eventStore.eventsMatchingPredicate(predicate)
+        eventStore.removeEvent((eventos.last as! EKEvent), span: EKSpanThisEvent, error: NSErrorPointer())
+    }
 
     /*
     // Override to support rearranging the table view.

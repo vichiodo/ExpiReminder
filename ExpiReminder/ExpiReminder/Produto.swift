@@ -14,7 +14,6 @@ class Produto: NSManagedObject {
     @NSManaged var nome: String
     @NSManaged var dataValidade: NSDate
     @NSManaged var codigoBarra: String
-    @NSManaged var diasFaltando: NSNumber
     @NSManaged var foto: NSData
 
 }

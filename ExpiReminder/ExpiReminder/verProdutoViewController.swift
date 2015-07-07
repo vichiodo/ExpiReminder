@@ -43,7 +43,11 @@ class verProdutoViewController: UITableViewController {
         imgProduto.image = UIImage(data: produto[i].foto)
         imgProduto.contentMode = UIViewContentMode.ScaleAspectFit
         
-        lblDiasRestantes.text = "\(produto[i].diasFaltando)"
+        var dataAgora = NSDate()
+        var convert: Int = Int(dataAgora.timeIntervalSinceDate(produto[i].dataValidade))
+        var diasFaltando = 1+(convert/86400)*(-1)
+        
+        lblDiasRestantes.text = "\(diasFaltando)"
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
