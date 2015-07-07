@@ -83,7 +83,7 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         var imagemProduto:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.imagem.image = imagemProduto
-        
+//        self.imagem.contentMode = UIViewContentMode.ScaleAspectFitm
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
