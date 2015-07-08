@@ -18,7 +18,8 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         }()
     
     var eventStore: EKEventStore!
-
+  
+    
     
     let usuarioManager = UsuarioManager.sharedInstance
     
@@ -117,7 +118,7 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
 
     // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {            
+        if editingStyle == .Delete {
             cancelarNotificacao(produtos[indexPath.row])
             excluirEventoCalendario(produtos[indexPath.row])
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)

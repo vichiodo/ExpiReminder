@@ -71,6 +71,7 @@ class ProdutoManager {
         }
     }
     
+    
     func removerProduto(index: Int) {
         var arrayProd: Array<Produto> = buscarProdutos()
         managedContext.deleteObject(arrayProd[index] as NSManagedObject)

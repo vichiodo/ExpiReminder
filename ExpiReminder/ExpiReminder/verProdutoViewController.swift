@@ -57,6 +57,33 @@ class verProdutoViewController: UITableViewController {
         }
     }
     
+    
+    
+    func alert(){
+        let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: "Você tem certeza que deseja apagar este produto?", preferredStyle: .Alert)
+        
+        let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+            ProdutoManager.sharedInstance.removerProduto(self.i)
+            ProdutoManager.sharedInstance.salvarProduto()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alerta.addAction(ok)
+        
+        let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { action -> Void in
+        }
+        alerta.addAction(cancelar)
+        self.presentViewController(alerta, animated: true, completion: nil)
+    }
+
+    
+    
+    
+    @IBAction func btnApagar(sender: AnyObject) {
+        alert()
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
