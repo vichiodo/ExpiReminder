@@ -78,6 +78,13 @@ class ProdutoManager {
         salvarProduto()
     }
     
+    func removeProduct(object: NSManagedObject) {
+        managedContext.deleteObject(object)
+        managedContext.save(NSErrorPointer())
+    }
+    
+    
+    
     func salvarNovoProduto(nome: String, foto: UIImage, data: NSDate, codigoBarra: String, diasFaltando: Int) {
         let produto = novoProduto()
         let imagem = UIImageJPEGRepresentation(foto, 1)

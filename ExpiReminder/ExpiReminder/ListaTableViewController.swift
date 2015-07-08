@@ -43,6 +43,11 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        produtos = ProdutoManager.sharedInstance.buscarProdutos()
+        self.tableView.reloadData()
+    }
 
     
     
@@ -122,6 +127,8 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
             cancelarNotificacao(produtos[indexPath.row])
             excluirEventoCalendario(produtos[indexPath.row])
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
+            //faltava essa linha pra não crashar mais, obs: o produto precisa estar cadastrado com notificacao on, pq falta implementar uma logica que não que o event não retorne nulo.
+            produtos.removeAtIndex(indexPath.row)
         }
         
         self.tableView.reloadData()
@@ -162,6 +169,8 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         
         var eventos = eventStore.eventsMatchingPredicate(predicate)
         eventStore.removeEvent((eventos.last as! EKEvent), span: EKSpanThisEvent, error: NSErrorPointer())
+        
+        
     }
 
     /*

@@ -27,6 +27,10 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
 
     var editando = false
     
+    
+    
+    
+    
     override func viewDidLoad() {
         
         
@@ -42,15 +46,13 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
             //valorNotificacao = 1
         }
         
-        
-        
-        
         super.viewDidLoad()
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = true
         self.txtNome.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recebeCodigoBarras:", name: "barCode", object: nil)
-
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -104,7 +106,7 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         var imagemProduto:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.imagem.image = imagemProduto
-//        self.imagem.contentMode = UIViewContentMode.ScaleAspectFitm
+//        self.imagem.contentMode = UIViewContentMode.ScaleAspectFit
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -211,9 +213,13 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
     }
     
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
