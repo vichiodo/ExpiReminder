@@ -117,7 +117,7 @@
                                             <outlet property="lblDataValidade" destination="8ea-IS-yyD" id="d38-dz-GbW"/>
                                             <outlet property="lblDiasRestantes" destination="cgC-rI-vMp" id="ffb-qe-qve"/>
                                             <outlet property="lblNomeProduto" destination="AGz-q5-dwb" id="2ze-QV-rG2"/>
-                                            <segue destination="bwq-Ty-uHt" kind="custom" identifier="verProduto" id="Hn8-Em-o7e"/>
+                                            <segue destination="bwq-Ty-uHt" kind="show" identifier="verProduto" id="Hn8-Em-o7e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -350,7 +350,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnW-Kt-5F8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2599" y="459"/>
+            <point key="canvasLocation" x="2598" y="331"/>
         </scene>
         <!--Ver Produto View Controller-->
         <scene sceneID="ysU-1d-0Zk">
@@ -709,6 +709,13 @@
                             <outlet property="delegate" destination="bwq-Ty-uHt" id="TKP-Ac-5Ee"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="3EX-fT-Emi">
+                        <barButtonItem key="rightBarButtonItem" title="Editar" id="WG7-sq-bAE">
+                            <connections>
+                                <segue destination="Li2-Mt-VK8" kind="show" identifier="editarProduto" id="4fR-L0-tjk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="1dw-Xj-kZP" id="fnm-iQ-bMz"/>
                         <outlet property="imgProduto" destination="V6x-GD-t5i" id="I2h-Ks-E52"/>
@@ -1059,4 +1066,7 @@
         <image name="Settings-32" width="32" height="32"/>
         <image name="calendars" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4fR-L0-tjk"/>
+    </inferredMetricsTieBreakers>
 </document>

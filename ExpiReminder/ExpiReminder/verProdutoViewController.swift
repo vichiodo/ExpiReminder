@@ -53,9 +53,10 @@ class verProdutoViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editarProduto" {
             let VC = segue.destinationViewController as! AddProdutoTableViewController
-//            VC.produto = produto?[i]
+            VC.produto = produto?[i]
         }
     }
+
     
     
     

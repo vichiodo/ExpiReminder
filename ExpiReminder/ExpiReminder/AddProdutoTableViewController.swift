@@ -25,8 +25,26 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     
     var codigoBarras:String!
 
+    var editando = false
     
     override func viewDidLoad() {
+        
+        
+        if let p = produto {
+            editando = true
+            self.navigationItem.title = "Editar Produto"
+            txtNome.text = p.nome
+            datePicker.date = p.dataValidade
+            //imagem.image = p.foto
+        } else {
+            editando = false
+           // datePicker.minimumDate = datePicker
+            //valorNotificacao = 1
+        }
+        
+        
+        
+        
         super.viewDidLoad()
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = true
@@ -96,10 +114,14 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     }
     
     @IBAction func salvar(sender: AnyObject) {
+//            if editando == false {
+//               var produto = ProdutoManager.sharedInstance.novoProduto()
+//            }
+//        if editando == false {
+//                 }
         
-        var produto = ProdutoManager.sharedInstance.novoProduto()
-        
-        if txtNome.text == nil || txtNome.text == ""{
+        produto = ProdutoManager.sharedInstance.novoProduto()
+         if txtNome.text == nil || txtNome.text == "" && editando == true{
             let alerta: UIAlertController = UIAlertController(title: "Nome faltando", message: "Digite o nome do produto", preferredStyle: .Alert)
             let al1:UIAlertAction = UIAlertAction(title: "OK", style: .Default, handler: { (ACTION) -> Void in
                 txtNome.becomeFirstResponder()
@@ -128,6 +150,7 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
         }
         
     }
+
     
     func criarNotificacao(prod: Produto) {
         for i in 0...usuarioManager.getDiasAlerta() {
