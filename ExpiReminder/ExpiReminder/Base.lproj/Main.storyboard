@@ -117,7 +117,7 @@
                                             <outlet property="lblDataValidade" destination="8ea-IS-yyD" id="d38-dz-GbW"/>
                                             <outlet property="lblDiasRestantes" destination="cgC-rI-vMp" id="ffb-qe-qve"/>
                                             <outlet property="lblNomeProduto" destination="AGz-q5-dwb" id="2ze-QV-rG2"/>
-                                            <segue destination="bwq-Ty-uHt" kind="custom" id="Hn8-Em-o7e"/>
+                                            <segue destination="bwq-Ty-uHt" kind="custom" identifier="verProduto" id="Hn8-Em-o7e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -367,7 +367,7 @@
                         <sections>
                             <tableViewSection headerTitle="Foto" id="wpC-3x-e1n">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="231" id="QBb-cx-uts">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="231" id="QBb-cx-uts">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QBb-cx-uts" id="GGK-lp-WsO">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -420,7 +420,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Nome Produto" id="wkj-fg-QxN">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="a79-uQ-oxD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="a79-uQ-oxD">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a79-uQ-oxD" id="Ow8-4h-TmB">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -506,7 +506,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Validade" id="k87-RQ-9Gd">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wv9-s9-S1p">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="wv9-s9-S1p">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wv9-s9-S1p" id="ERH-za-dbu">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -592,7 +592,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Dias Restantes" id="pyF-Vy-ugX">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CBS-j0-l22">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="CBS-j0-l22">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CBS-j0-l22" id="8LD-oR-dID">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -676,6 +676,92 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Opções" id="Cm2-PF-E7w">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="zhA-6w-YB7">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zhA-6w-YB7" id="MO2-BA-XKH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 dias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdT-Aj-U7a">
+                                                    <rect key="frame" x="168" y="507" width="411" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="IcP-06-q0B"/>
+                                                        <constraint firstAttribute="width" constant="97" id="hfe-3D-W4Y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="hfe-3D-W4Y"/>
+                                                            <exclude reference="IcP-06-q0B"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="hfe-3D-W4Y"/>
+                                                            <include reference="IcP-06-q0B"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dias Restantes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfb-yg-82i">
+                                                    <rect key="frame" x="38" y="507" width="121" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="BRg-YM-x1d"/>
+                                                        <constraint firstAttribute="width" constant="127" id="pm4-wa-Rrx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="BRg-YM-x1d"/>
+                                                            <exclude reference="pm4-wa-Rrx"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="BRg-YM-x1d"/>
+                                                            <include reference="pm4-wa-Rrx"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="VdT-Aj-U7a" secondAttribute="centerY" constant="1.5" id="K5b-71-WXa"/>
+                                                <constraint firstAttribute="centerY" secondItem="kfb-yg-82i" secondAttribute="centerY" id="dRT-S8-pD4"/>
+                                                <constraint firstAttribute="centerX" secondItem="VdT-Aj-U7a" secondAttribute="centerX" constant="-143.5" id="sNP-ky-auD"/>
+                                                <constraint firstAttribute="centerX" secondItem="kfb-yg-82i" secondAttribute="centerX" constant="123.5" id="xhJ-Bc-647"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="VdT-Aj-U7a"/>
+                                                    <exclude reference="kfb-yg-82i"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="dRT-S8-pD4"/>
+                                                    <exclude reference="xhJ-Bc-647"/>
+                                                    <exclude reference="sNP-ky-auD"/>
+                                                    <exclude reference="K5b-71-WXa"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="VdT-Aj-U7a"/>
+                                                    <include reference="kfb-yg-82i"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="dRT-S8-pD4"/>
+                                                    <include reference="xhJ-Bc-647"/>
+                                                    <include reference="sNP-ky-auD"/>
+                                                    <include reference="K5b-71-WXa"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="bwq-Ty-uHt" id="tP3-pC-JP5"/>
@@ -726,7 +812,7 @@
                         <sections>
                             <tableViewSection headerTitle="Notificação" id="Fr4-WF-sO0">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BMd-1O-BJl">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="BMd-1O-BJl">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BMd-1O-BJl" id="zUJ-eA-kCg">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -760,7 +846,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Alerta" id="OL7-0A-lUp">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="j4f-CC-ktH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="j4f-CC-ktH">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j4f-CC-ktH" id="3OL-TC-I4l">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -843,7 +929,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Uom-Jz-vRN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Uom-Jz-vRN">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uom-Jz-vRN" id="dTv-dl-oE3">
                                             <autoresizingMask key="autoresizingMask"/>
