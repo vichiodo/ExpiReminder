@@ -20,7 +20,7 @@ class verProdutoViewController: UITableViewController {
     
     var eventStore: EKEventStore!
 
-    var i : Int! = 1
+    var i : Int!
     
     var produto: Array<Produto>!
     
@@ -39,6 +39,7 @@ class verProdutoViewController: UITableViewController {
     func preencherLabel() {
         produto = ProdutoManager.sharedInstance.buscarProdutos()
         lblNomeProduto.text = produto[i].nome
+        eventStore = EKEventStore()
         
         var dataValidade = NSDateFormatter()
         dataValidade.dateFormat = "dd/MM/yyyy"
@@ -64,11 +65,13 @@ class verProdutoViewController: UITableViewController {
 
     
     
+    //gera alerta que faz ação de apagar ou não.
     
     func alert(){
         let alerta: UIAlertController = UIAlertController(title: "Atenção!", message: "Você tem certeza que deseja apagar este produto?", preferredStyle: .Alert)
         
         let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
+            println(self.produto)
             self.cancelarNotificacao(self.produto[self.i])
             self.excluirEventoCalendario(self.produto[self.i])
             ProdutoManager.sharedInstance.removerProduto(self.i)
