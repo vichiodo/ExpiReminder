@@ -21,6 +21,7 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
   
     
     
+    
     let usuarioManager = UsuarioManager.sharedInstance
     
     override func viewDidLoad() {
@@ -127,8 +128,10 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     // Override to support editing the table view.
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            cancelarNotificacao(produtos[indexPath.row])
-            excluirEventoCalendario(produtos[indexPath.row])
+            if usuarioManager.getAlerta() == true {
+                cancelarNotificacao(produtos[indexPath.row])
+                excluirEventoCalendario(produtos[indexPath.row])
+            }
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
             //faltava essa linha pra não crashar mais, obs: o produto precisa estar cadastrado com notificacao on, pq falta implementar uma logica que não que o event não retorne nulo.
             produtos.removeAtIndex(indexPath.row)

@@ -28,7 +28,7 @@ class verProdutoViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         preencherLabel()
 
     }
@@ -72,8 +72,12 @@ class verProdutoViewController: UITableViewController {
         
         let ok: UIAlertAction = UIAlertAction(title: "Ok", style: .Default) { action -> Void in
             println(self.produto)
-            self.cancelarNotificacao(self.produto[self.i])
-            self.excluirEventoCalendario(self.produto[self.i])
+            
+            if self.usuarioManager.getAlerta() == true {
+                self.cancelarNotificacao(self.produto[self.i])
+                self.excluirEventoCalendario(self.produto[self.i])
+            }
+            
             ProdutoManager.sharedInstance.removerProduto(self.i)
             
             //self.produto.removeAtIndex(self.i)
