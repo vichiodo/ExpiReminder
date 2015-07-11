@@ -87,22 +87,25 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
             diasFaltando = 1+(convert/86400)*(-1)
         }
         
-        switch diasFaltando{
-        case -1:
+        if diasFaltando < 0{
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
-        case 0:
+            self.tableView.reloadData()
+        }
+        else if diasFaltando == 0 {
             cell.lblDiasRestantes.text = "Vence hoje!"
             cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 15)
             cell.lblDiasRestantes.textColor = UIColor.redColor()
-        case 1:
+        }
+        else if diasFaltando == 1 {
             cell.lblDiasRestantes.text = "Vence amanhã!"
             cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 15)
             cell.lblDiasRestantes.textColor = UIColor.redColor()
-        default:
+        } else {
             cell.lblDiasRestantes.text = "\(diasFaltando) dias para vencer!"
             cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 14)
             cell.lblDiasRestantes.textColor = UIColor.blueColor()
         }
+        
         return cell
     }
     

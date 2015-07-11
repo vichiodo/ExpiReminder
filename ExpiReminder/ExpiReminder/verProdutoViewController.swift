@@ -137,8 +137,6 @@ class verProdutoViewController: UITableViewController {
         var predicate = eventStore.predicateForEventsWithStartDate(prod.dataValidade, endDate: endData, calendars:[eventStore.defaultCalendarForNewEvents])
         var eventos = eventStore.eventsMatchingPredicate(predicate)
         eventStore.removeEvent((eventos.last as! EKEvent), span: EKSpanThisEvent, error: NSErrorPointer())
-        
-        
     }
 
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443BCF9D1B51550600F5DBEA /* CalendarioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443BCF9C1B51550600F5DBEA /* CalendarioTableViewController.swift */; };
+		443BCF9F1B515F3000F5DBEA /* CalendarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443BCF9E1B515F3000F5DBEA /* CalendarioTableViewCell.swift */; };
 		4472740A1B41ACC3002F24E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447274091B41ACC3002F24E6 /* AppDelegate.swift */; };
 		4472740D1B41ACC3002F24E6 /* ExpiReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4472740B1B41ACC3002F24E6 /* ExpiReminder.xcdatamodeld */; };
 		447274121B41ACC3002F24E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447274101B41ACC3002F24E6 /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		443BCF9C1B51550600F5DBEA /* CalendarioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarioTableViewController.swift; sourceTree = "<group>"; };
+		443BCF9E1B515F3000F5DBEA /* CalendarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarioTableViewCell.swift; sourceTree = "<group>"; };
 		447274041B41ACC3002F24E6 /* ExpiReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpiReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447274081B41ACC3002F24E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		447274091B41ACC3002F24E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				B272DB711B42D3DC003FA774 /* verProdutoViewController.swift */,
 				44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */,
 				E3B634C51B45AB0A00748BBF /* ConfigTableViewController.swift */,
+				443BCF9C1B51550600F5DBEA /* CalendarioTableViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				B272DB731B42D476003FA774 /* ProdutosTableViewCell.swift */,
+				443BCF9E1B515F3000F5DBEA /* CalendarioTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -311,7 +317,9 @@
 				E3B634C31B44684600748BBF /* BarCodeView.swift in Sources */,
 				4472740D1B41ACC3002F24E6 /* ExpiReminder.xcdatamodeld in Sources */,
 				B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */,
+				443BCF9D1B51550600F5DBEA /* CalendarioTableViewController.swift in Sources */,
 				B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */,
+				443BCF9F1B515F3000F5DBEA /* CalendarioTableViewCell.swift in Sources */,
 				E3B634C61B45AB0A00748BBF /* ConfigTableViewController.swift in Sources */,
 				447274371B41B66F002F24E6 /* ListaTableViewController.swift in Sources */,
 			);
