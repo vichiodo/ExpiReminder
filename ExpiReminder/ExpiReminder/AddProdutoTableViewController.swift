@@ -27,23 +27,17 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
 
     var editando = false
     
-    
-    
-    
-    
     override func viewDidLoad() {
-        
-        
         if let p = produto {
             editando = true
             self.navigationItem.title = "Editar Produto"
             txtNome.text = p.nome
             datePicker.date = p.dataValidade
-            //imagem.image = p.foto
+            imagem.image = UIImage(data: p.foto)
+            codigoBarras = p.codigoBarra
         } else {
             editando = false
-           // datePicker.minimumDate = datePicker
-            //valorNotificacao = 1
+            datePicker.minimumDate = NSDate()
         }
         
         super.viewDidLoad()
@@ -53,11 +47,21 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "recebeCodigoBarras:", name: "barCode", object: nil)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
+//        if codigoBarras != nil { TENTATIVA DE FAZER RETORNAR OS VALORES JA SALVOS PELO MESMO CODIGO DE BARRAS
+//            var produtoExiste: Produto! = ProdutoManager.sharedInstance.buscarCodigo(codigoBarras)
+//            
+//            if let existe = produtoExiste {
+//                txtNome.text = produtoExiste.nome
+//                imagem.image = UIImage(data: produtoExiste.foto)
+//            }
+//        }
+
         self.tableView.reloadData()
     }
 
@@ -116,13 +120,6 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     }
     
     @IBAction func salvar(sender: AnyObject) {
-//            if editando == false {
-//               var produto = ProdutoManager.sharedInstance.novoProduto()
-//            }
-//        if editando == false {
-//                 }
-        
-        produto = ProdutoManager.sharedInstance.novoProduto()
          if txtNome.text == nil || txtNome.text == "" && editando == true{
             let alerta: UIAlertController = UIAlertController(title: "Nome faltando", message: "Digite o nome do produto", preferredStyle: .Alert)
             let al1:UIAlertAction = UIAlertAction(title: "OK", style: .Default, handler: { (ACTION) -> Void in
@@ -132,21 +129,41 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
             self.presentViewController(alerta, animated: true, completion: nil)
         }
         else{
-            var dataAgora = NSDate()
-            var convert: Int = Int(dataAgora.timeIntervalSinceDate(datePicker.date))
-            var diasFaltando = 1+(convert/86400)*(-1)
-    
-            produto.nome = txtNome.text
-            produto.dataValidade = datePicker.date
-            produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
-            //produto.codigoBarra = codigoBarras
-            ProdutoManager.sharedInstance.salvarProduto()
             
-            if usuarioManager.getAlerta() == true {
-                criarNotificacao(produto)
+            if editando == false{
+                produto = ProdutoManager.sharedInstance.novoProduto()
+                produto.nome = txtNome.text
+                produto.dataValidade = datePicker.date
+                produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
+                if codigoBarras == nil{
+                    produto.codigoBarra = ""
+                } else{
+                    produto.codigoBarra = codigoBarras
+                }
+                
+                ProdutoManager.sharedInstance.salvarProduto()
+                
+                if usuarioManager.getAlerta() == true {
+                    criarNotificacao(produto)
+                }
                 criarEventoCalendario(produto)
+
+            } else if let p = produto {
+                    cancelarNotificacao(p)
+                    excluirEventoCalendario(p)
+                    
+                    produto.nome = txtNome.text
+                    produto.dataValidade = datePicker.date
+                    produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
+                    produto.codigoBarra = codigoBarras
+                    
+                    criarEventoCalendario(produto)
+                    criarNotificacao(produto)
+                    
+                    ProdutoManager.sharedInstance.salvarProduto()
+                
             }
-                        
+            
             self.tabBarController?.tabBar.hidden = false
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
@@ -229,6 +246,47 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     func dismissKeyboard() {
         self.view.endEditing(true)
     }
+    
+    
+    func cancelarNotificacao(prod: Produto) {
+        for i in 0...usuarioManager.getDiasAlerta() {
+            var localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Produto vencendo"
+            var diasRestantes = 7 - i
+            var strNotif = "\(prod.nome)"
+            if diasRestantes == 0 {
+                localNotification.alertBody = "'\(strNotif)' vai vencer hoje!"
+            }
+            else if diasRestantes == 1 {
+                localNotification.alertBody = "'\(strNotif)' vai vencer amanhã!"
+            }
+            else {
+                localNotification.alertBody = "Faltam \(diasRestantes) dias para '\(strNotif)' vencer!"
+            }
+            
+            let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0 * 24
+            var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
+            
+            let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
+            
+            localNotification.soundName = UILocalNotificationDefaultSoundName
+            localNotification.applicationIconBadgeNumber = 1
+            
+            localNotification.fireDate = NSDate(timeInterval: intervalo, sinceDate: horario)
+            UIApplication.sharedApplication().cancelLocalNotification(localNotification)
+        }
+    }
+    
+    func excluirEventoCalendario(prod: Produto){
+        var endData: NSDate = NSDate(timeInterval: 3600, sinceDate: prod.dataValidade)
+        var predicate = eventStore.predicateForEventsWithStartDate(prod.dataValidade, endDate: endData, calendars:[eventStore.defaultCalendarForNewEvents])
+        
+        var eventos = eventStore.eventsMatchingPredicate(predicate)
+        eventStore.removeEvent((eventos.last as! EKEvent), span: EKSpanThisEvent, error: NSErrorPointer())
+        
+        
+    }
+
     /*
     // MARK: - Navigation
 

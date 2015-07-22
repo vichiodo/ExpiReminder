@@ -89,6 +89,10 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         if diasFaltando < 0{
+            if usuarioManager.getAlerta() == true {
+                cancelarNotificacao(produtos[indexPath.row])
+            }
+            excluirEventoCalendario(produtos[indexPath.row])
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
             self.tableView.reloadData()
         }
@@ -130,8 +134,8 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         if editingStyle == .Delete {
             if usuarioManager.getAlerta() == true {
                 cancelarNotificacao(produtos[indexPath.row])
-                excluirEventoCalendario(produtos[indexPath.row])
             }
+            excluirEventoCalendario(produtos[indexPath.row])
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
             //faltava essa linha pra não crashar mais, obs: o produto precisa estar cadastrado com notificacao on, pq falta implementar uma logica que não que o event não retorne nulo.
             produtos.removeAtIndex(indexPath.row)

@@ -55,6 +55,22 @@ class ProdutoManager {
         return produto
     }
     
+    func buscarCodigo(codigo: String)-> Produto{
+        let buscaRequest = NSFetchRequest(entityName: ProdutoManager.entityName)
+        buscaRequest.predicate = NSPredicate(format: "codigoBarra == %s", codigo)
+        var erro: NSError?
+        let buscaResultados = managedContext.executeFetchRequest(buscaRequest, error: &erro) as? [NSManagedObject]
+        if let resultados = buscaResultados as? [Produto] {
+            return resultados.last!
+        } else {
+            println("Não foi possível buscar esse produto. Erro: \(erro), \(erro!.userInfo)")
+        }
+        
+        NSFetchRequest(entityName: "FetchRequest")
+        
+        return Produto()
+    }
+    
     func salvarProduto() {
         var erro: NSError?
         managedContext.save(&erro)

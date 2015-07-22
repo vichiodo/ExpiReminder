@@ -75,9 +75,9 @@ class verProdutoViewController: UITableViewController {
             
             if self.usuarioManager.getAlerta() == true {
                 self.cancelarNotificacao(self.produto[self.i])
-                self.excluirEventoCalendario(self.produto[self.i])
             }
-            
+            self.excluirEventoCalendario(self.produto[self.i])
+
             ProdutoManager.sharedInstance.removerProduto(self.i)
             
             //self.produto.removeAtIndex(self.i)
