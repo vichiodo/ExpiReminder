@@ -21,6 +21,7 @@
 		447274331B41AFE0002F24E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447274321B41AFE0002F24E6 /* QuartzCore.framework */; };
 		447274351B41B004002F24E6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447274341B41B004002F24E6 /* EventKit.framework */; };
 		447274371B41B66F002F24E6 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447274361B41B66F002F24E6 /* ListaTableViewController.swift */; };
+		44C0375B1B629E0E001064D3 /* NotifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C0375A1B629E0E001064D3 /* NotifManager.swift */; };
 		44D26CEB1B42D15500380961 /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CEA1B42D15500380961 /* Produto.swift */; };
 		44D26CED1B42D19800380961 /* ProdutoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CEC1B42D19800380961 /* ProdutoManager.swift */; };
 		44D26CF31B42D48C00380961 /* AddProdutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */; };
@@ -61,6 +62,7 @@
 		447274321B41AFE0002F24E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		447274341B41B004002F24E6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		447274361B41B66F002F24E6 /* ListaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
+		44C0375A1B629E0E001064D3 /* NotifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifManager.swift; sourceTree = "<group>"; };
 		44D26CEA1B42D15500380961 /* Produto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
 		44D26CEC1B42D19800380961 /* ProdutoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutoManager.swift; sourceTree = "<group>"; };
 		44D26CF21B42D48C00380961 /* AddProdutoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProdutoTableViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				E3B634C81B45CEDB00748BBF /* UsuarioManager.swift */,
+				44C0375A1B629E0E001064D3 /* NotifManager.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B272DB741B42D476003FA774 /* ProdutosTableViewCell.swift in Sources */,
 				443BCF9D1B51550600F5DBEA /* CalendarioTableViewController.swift in Sources */,
 				B272DB721B42D3DC003FA774 /* verProdutoViewController.swift in Sources */,
+				44C0375B1B629E0E001064D3 /* NotifManager.swift in Sources */,
 				443BCF9F1B515F3000F5DBEA /* CalendarioTableViewCell.swift in Sources */,
 				E3B634C61B45AB0A00748BBF /* ConfigTableViewController.swift in Sources */,
 				447274371B41B66F002F24E6 /* ListaTableViewController.swift in Sources */,

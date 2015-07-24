@@ -17,16 +17,12 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         return ProdutoManager.sharedInstance.buscarProdutos()
         }()
     
-    var eventStore: EKEventStore!
-  
-    
-    
-    
     let usuarioManager = UsuarioManager.sharedInstance
+    let notifManager = NotifManager.sharedInstance
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventStore = EKEventStore()
         tableView.delegate = self
         tableView.dataSource = self
         produtos = ProdutoManager.sharedInstance.buscarProdutos()
@@ -75,11 +71,15 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         let myDate: String = dateFormatter.stringFromDate(produtos[indexPath.row].dataValidade)
         let data: String = dateFormatter.stringFromDate(NSDate())
         
+        
         cell.lblNomeProduto.text = produtos[indexPath.row].nome
         cell.lblDataValidade.text = "\(myDate)"
         
         var dataAgora = NSDate()
         var diasFaltando: Int!
+        print("\(data)")
+        print("\(myDate)")
+        
         if data == myDate {
             diasFaltando = 0
         }
@@ -90,10 +90,11 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         
         if diasFaltando < 0{
             if usuarioManager.getAlerta() == true {
-                cancelarNotificacao(produtos[indexPath.row])
+                self.notifManager.cancelarNotificacao(produtos[indexPath.row])
             }
-            excluirEventoCalendario(produtos[indexPath.row])
+            self.notifManager.excluirEventoCalendario(produtos[indexPath.row])
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
+            produtos.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
         }
         else if diasFaltando == 0 {
@@ -133,54 +134,15 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             if usuarioManager.getAlerta() == true {
-                cancelarNotificacao(produtos[indexPath.row])
+                self.notifManager.cancelarNotificacao(produtos[indexPath.row])
             }
-            excluirEventoCalendario(produtos[indexPath.row])
+            self.notifManager.excluirEventoCalendario(produtos[indexPath.row])
             ProdutoManager.sharedInstance.removerProduto(indexPath.row)
             //faltava essa linha pra não crashar mais, obs: o produto precisa estar cadastrado com notificacao on, pq falta implementar uma logica que não que o event não retorne nulo.
             produtos.removeAtIndex(indexPath.row)
         }
         
         self.tableView.reloadData()
-    }
-
-    func cancelarNotificacao(prod: Produto) {
-        for i in 0...usuarioManager.getDiasAlerta() {
-            var localNotification:UILocalNotification = UILocalNotification()
-            localNotification.alertAction = "Produto vencendo"
-            var diasRestantes = 7 - i
-            var strNotif = "\(prod.nome)"
-            if diasRestantes == 0 {
-                localNotification.alertBody = "'\(strNotif)' vai vencer hoje!"
-            }
-            else if diasRestantes == 1 {
-                localNotification.alertBody = "'\(strNotif)' vai vencer amanhã!"
-            }
-            else {
-                localNotification.alertBody = "Faltam \(diasRestantes) dias para '\(strNotif)' vencer!"
-            }
-            
-            let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0 * 24
-            var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
-            
-            let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
-            
-            localNotification.soundName = UILocalNotificationDefaultSoundName
-            localNotification.applicationIconBadgeNumber = 1
-            
-            localNotification.fireDate = NSDate(timeInterval: intervalo, sinceDate: horario)
-            UIApplication.sharedApplication().cancelLocalNotification(localNotification)
-        }
-    }
-
-    func excluirEventoCalendario(prod: Produto){
-        var endData: NSDate = NSDate(timeInterval: 3600, sinceDate: prod.dataValidade)
-        var predicate = eventStore.predicateForEventsWithStartDate(prod.dataValidade, endDate: endData, calendars:[eventStore.defaultCalendarForNewEvents])
-        
-        var eventos = eventStore.eventsMatchingPredicate(predicate)
-        eventStore.removeEvent((eventos.last as! EKEvent), span: EKSpanThisEvent, error: NSErrorPointer())
-        
-        
     }
 
     /*
