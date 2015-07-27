@@ -52,15 +52,6 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = true
-//        if codigoBarras != nil { TENTATIVA DE FAZER RETORNAR OS VALORES JA SALVOS PELO MESMO CODIGO DE BARRAS
-//            var produtoExiste: Produto! = ProdutoManager.sharedInstance.buscarCodigo(codigoBarras)
-//            
-//            if let existe = produtoExiste {
-//                txtNome.text = produtoExiste.nome
-//                imagem.image = UIImage(data: produtoExiste.foto)
-//            }
-//        }
-
         self.tableView.reloadData()
     }
 

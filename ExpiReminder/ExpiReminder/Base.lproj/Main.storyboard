@@ -15,7 +15,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="slh-xK-wh6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1215686275" green="0.67843137249999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9bG-pI-0Un" kind="relationship" relationship="viewControllers" id="Vwn-Ks-Wce"/>
@@ -39,6 +41,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i0g-3g-BT1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.1215686275" green="0.67843137249999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="AJF-1p-E9T" kind="relationship" relationship="rootViewController" id="QWe-fu-Evu"/>
@@ -1075,6 +1079,6 @@
         <image name="calendars" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4fR-L0-tjk"/>
+        <segue reference="272-v9-p0F"/>
     </inferredMetricsTieBreakers>
 </document>
