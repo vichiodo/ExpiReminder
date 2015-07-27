@@ -839,12 +839,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j4f-CC-ktH" id="3OL-TC-I4l">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aSa-Hq-DVs">
-                                                    <rect key="frame" x="444" y="7" width="118" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="114" id="Psf-nG-ehV"/>
-                                                    </constraints>
-                                                </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-dL-ZKs">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
@@ -864,41 +858,11 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dias para o alerta:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-PD-zX9">
-                                                    <rect key="frame" x="20" y="11" width="149" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="149" id="BLR-3c-9F7"/>
-                                                        <constraint firstAttribute="height" constant="21" id="EI9-mM-lrn"/>
-                                                        <constraint firstAttribute="width" constant="149" id="yen-2B-X0i"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="EI9-mM-lrn"/>
-                                                            <exclude reference="yen-2B-X0i"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="EI9-mM-lrn"/>
-                                                            <include reference="yen-2B-X0i"/>
-                                                        </mask>
-                                                    </variation>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="yk3-dL-ZKs" secondAttribute="centerY" id="6kP-bt-UJL"/>
-                                                <constraint firstAttribute="centerX" secondItem="hYU-PD-zX9" secondAttribute="centerX" constant="105.5" id="EmL-Ui-QpO"/>
-                                                <constraint firstItem="hYU-PD-zX9" firstAttribute="top" secondItem="3OL-TC-I4l" secondAttribute="topMargin" constant="3" id="Pua-Kt-Bpp"/>
-                                                <constraint firstAttribute="centerY" secondItem="hYU-PD-zX9" secondAttribute="centerY" id="SRS-q8-Mqt"/>
                                                 <constraint firstAttribute="centerX" secondItem="yk3-dL-ZKs" secondAttribute="centerX" constant="-132.5" id="VHe-24-ZkD"/>
-                                                <constraint firstItem="hYU-PD-zX9" firstAttribute="centerY" secondItem="3OL-TC-I4l" secondAttribute="centerY" id="WfH-hk-PH5"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="aSa-Hq-DVs" secondAttribute="trailing" constant="32" id="YuA-ed-CH2"/>
-                                                <constraint firstItem="hYU-PD-zX9" firstAttribute="leading" secondItem="3OL-TC-I4l" secondAttribute="leadingMargin" constant="12" id="g7e-oT-dCS"/>
                                                 <constraint firstAttribute="centerY" secondItem="yk3-dL-ZKs" secondAttribute="centerY" id="gjp-d5-SD9"/>
-                                                <constraint firstItem="aSa-Hq-DVs" firstAttribute="top" secondItem="3OL-TC-I4l" secondAttribute="topMargin" constant="-1" id="w4o-EM-czt"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -908,8 +872,6 @@
                                                     <exclude reference="6kP-bt-UJL"/>
                                                     <exclude reference="VHe-24-ZkD"/>
                                                     <exclude reference="gjp-d5-SD9"/>
-                                                    <exclude reference="EmL-Ui-QpO"/>
-                                                    <exclude reference="SRS-q8-Mqt"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -920,8 +882,6 @@
                                                     <include reference="6kP-bt-UJL"/>
                                                     <include reference="VHe-24-ZkD"/>
                                                     <include reference="gjp-d5-SD9"/>
-                                                    <include reference="EmL-Ui-QpO"/>
-                                                    <include reference="SRS-q8-Mqt"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1076,7 +1036,6 @@
                         <outlet property="alertaUISwitch" destination="9UI-RZ-iXd" id="v5P-pw-m8d"/>
                         <outlet property="diasAlertaLabel" destination="yk3-dL-ZKs" id="TiK-2A-CD6"/>
                         <outlet property="diasAlertaSlider" destination="Ypd-ml-ANp" id="EQy-ne-eet"/>
-                        <outlet property="horarioDatePicker" destination="ZNW-dM-9WQ" id="Qun-QW-N6z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vX5-hE-mWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1116,6 +1075,6 @@
         <image name="calendars" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="272-v9-p0F"/>
+        <segue reference="4fR-L0-tjk"/>
     </inferredMetricsTieBreakers>
 </document>

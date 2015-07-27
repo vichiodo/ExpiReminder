@@ -128,7 +128,6 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
             self.presentViewController(alerta, animated: true, completion: nil)
         }
         else{
-            
             if editando == false{
                 produto = ProdutoManager.sharedInstance.novoProduto()
                 produto.nome = txtNome.text

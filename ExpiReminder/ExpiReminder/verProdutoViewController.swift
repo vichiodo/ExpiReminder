@@ -61,8 +61,6 @@ class verProdutoViewController: UITableViewController {
             VC.produto = produto?[i]
         }
     }
-
-    
     
     //gera alerta que faz ação de apagar ou não.
     
@@ -79,9 +77,6 @@ class verProdutoViewController: UITableViewController {
             
             ProdutoManager.sharedInstance.removerProduto(self.i)
             
-            //self.produto.removeAtIndex(self.i)
-            
-            //ProdutoManager.sharedInstance.salvarProduto()
             self.navigationController?.popViewControllerAnimated(true)
         }
         alerta.addAction(ok)
@@ -92,8 +87,6 @@ class verProdutoViewController: UITableViewController {
         self.presentViewController(alerta, animated: true, completion: nil)
     }
 
-    
-    
     
     @IBAction func btnApagar(sender: AnyObject) {
         alert()

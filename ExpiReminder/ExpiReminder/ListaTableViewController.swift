@@ -19,14 +19,14 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     
     let usuarioManager = UsuarioManager.sharedInstance
     let notifManager = NotifManager.sharedInstance
-
+    
+    var diasFaltando: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         produtos = ProdutoManager.sharedInstance.buscarProdutos()
-        //self.tabBarController?.tabBar.hidden = false
         print(produtos.count)
     
     }
@@ -36,17 +36,29 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         produtos = ProdutoManager.sharedInstance.buscarProdutos()
         self.tableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     override func viewWillAppear(animated: Bool) {
+        var dataAgora = NSDate()
+        for var i = 0; i<produtos.count;{
+            var dateComparisionResult:NSComparisonResult = dataAgora.compare(produtos[i].dataValidade)
+
+            if dateComparisionResult == NSComparisonResult.OrderedDescending && dateComparisionResult != NSComparisonResult.OrderedSame {
+                if usuarioManager.getAlerta() == true {
+                    self.notifManager.cancelarNotificacao(produtos[i])
+                }
+                self.notifManager.excluirEventoCalendario(produtos[i])
+                ProdutoManager.sharedInstance.removerProduto(i)
+                produtos.removeAtIndex(i)
+            }
+            ++i
+        }
         produtos = ProdutoManager.sharedInstance.buscarProdutos()
         self.tableView.reloadData()
     }
 
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     // MARK: - Table view data source
 
@@ -59,9 +71,7 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        produtos = ProdutoManager.sharedInstance.buscarProdutos()
-        
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {        
         let cell: ProdutosTableViewCell = tableView.dequeueReusableCellWithIdentifier("cellProduto", forIndexPath: indexPath) as! ProdutosTableViewCell
         
         let dataString: String = "\(produtos[indexPath.row].dataValidade)"
@@ -76,7 +86,6 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
         cell.lblDataValidade.text = "\(myDate)"
         
         var dataAgora = NSDate()
-        var diasFaltando: Int!
         print("\(data)")
         print("\(myDate)")
         
@@ -88,16 +97,7 @@ class ListaTableViewController: UIViewController, UITableViewDataSource, UITable
             diasFaltando = 1+(convert/86400)*(-1)
         }
         
-        if diasFaltando < 0{
-            if usuarioManager.getAlerta() == true {
-                self.notifManager.cancelarNotificacao(produtos[indexPath.row])
-            }
-            self.notifManager.excluirEventoCalendario(produtos[indexPath.row])
-            ProdutoManager.sharedInstance.removerProduto(indexPath.row)
-            produtos.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
-        }
-        else if diasFaltando == 0 {
+        if diasFaltando == 0 {
             cell.lblDiasRestantes.text = "Vence hoje!"
             cell.lblDiasRestantes.font = UIFont(name: cell.lblDiasRestantes.font.fontName, size: 15)
             cell.lblDiasRestantes.textColor = UIColor.redColor()

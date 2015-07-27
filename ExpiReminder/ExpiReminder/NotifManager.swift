@@ -47,16 +47,6 @@ class NotifManager: NSObject{
             
             let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0 * 24
             var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
-            
-            /*
-            vivi, como vc está mexendo aqui, e eu não entendi tão bem a logica como vc montou as notifications, tem uma  maneira mais facil de colocar a hora na data que temos rs, é algo que foi implementado agora no iOS 8.0
-            
-            let date: NSDate = NSDate()
-            let cal: NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
-            
-            let newDate: NSDate = cal.dateBySettingHour(0, minute: 0, second: 0, ofDate: date, options: NSCalendarOptions())!
-            */
-            
             let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
             
             localNotification.soundName = UILocalNotificationDefaultSoundName

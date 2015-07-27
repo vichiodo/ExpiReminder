@@ -28,9 +28,6 @@ class ConfigTableViewController: UITableViewController {
     
     @IBOutlet weak var diasAlertaSlider: UISlider!
     
-    @IBOutlet weak var horarioDatePicker: UIDatePicker!
-    
-    
     //switch de ativo ou não
     @IBAction func alertaSwitch(sender: AnyObject) {
         var mySwitch = sender as! UISwitch
@@ -64,7 +61,6 @@ class ConfigTableViewController: UITableViewController {
         estaAtivo = usuarioManager.getAlerta()
         alertaUISwitch.setOn(estaAtivo, animated: false)
         //olhar aqui direito
-        horarioDatePicker.setDate(usuarioManager.getHorarioNotificacao(), animated: false)
         diasAlertaSlider.value = Float(usuarioManager.getDiasAlerta())
         
         
@@ -106,7 +102,7 @@ class ConfigTableViewController: UITableViewController {
             case 0:
                 return 1
             case 1:
-                return 3
+                return 2
             default:
                 return 0
             }

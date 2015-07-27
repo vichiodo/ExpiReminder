@@ -135,7 +135,7 @@ class CalendarioTableViewController: UIViewController, UITableViewDataSource, UI
                         if dataCompara.compare(date7!) == NSComparisonResult.OrderedDescending {
                             produtos15Dias.append(produtosOrdenados[i])
                         } else {
-                            if dataCompara.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+                            if dataCompara.compare(NSDate()) == NSComparisonResult.OrderedDescending || dataCompara.compare(NSDate()) == NSComparisonResult.OrderedSame {
                                 produtos7Dias.append(produtosOrdenados[i])
                             }
                         }
