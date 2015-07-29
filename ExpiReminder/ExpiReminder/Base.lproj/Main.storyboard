@@ -41,7 +41,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i0g-3g-BT1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.1215686275" green="0.67843137249999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>

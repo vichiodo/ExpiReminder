@@ -38,6 +38,7 @@ class verProdutoViewController: UITableViewController {
     
     func preencherLabel() {
         produto = ProdutoManager.sharedInstance.buscarProdutos()
+        self.navigationItem.title = produto[i].nome
         lblNomeProduto.text = produto[i].nome
         
         var dataValidade = NSDateFormatter()
