@@ -77,16 +77,6 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
         }
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-    
     @IBAction func camera(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(.Camera){
             imagePicker.sourceType = .Camera

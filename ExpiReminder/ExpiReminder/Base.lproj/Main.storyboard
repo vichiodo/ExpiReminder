@@ -283,7 +283,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Agk-fF-HBu" id="gGY-LZ-O6n">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-cc-av1">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-cc-av1">
                                                     <rect key="frame" x="156" y="8" width="289" height="177.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="289" id="S0l-LP-CM5"/>
@@ -470,9 +470,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nomeProduto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgW-Ij-8hf">
-                                                    <rect key="frame" x="137" y="395" width="435" height="21"/>
+                                                    <rect key="frame" x="138" y="395" width="435" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="4zM-bC-dbj"/>
                                                         <constraint firstAttribute="width" constant="110" id="DFY-sd-uHN"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -480,19 +479,17 @@
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="4zM-bC-dbj"/>
                                                             <exclude reference="DFY-sd-uHN"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="4zM-bC-dbj"/>
                                                             <include reference="DFY-sd-uHN"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produto:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGb-q3-fWP">
-                                                    <rect key="frame" x="38" y="395" width="67" height="21"/>
+                                                    <rect key="frame" x="45" y="395" width="67" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="67" id="7b2-il-t4m"/>
                                                         <constraint firstAttribute="height" constant="21" id="J3m-vG-US8"/>
@@ -578,7 +575,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de Validade:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HE-eV-GHO">
-                                                    <rect key="frame" x="38" y="449" width="135" height="21"/>
+                                                    <rect key="frame" x="45" y="449" width="135" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="NRt-FO-fgw"/>
                                                         <constraint firstAttribute="width" constant="135" id="nWH-Sh-JC2"/>
@@ -664,7 +661,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dias Restantes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-b9-ayH">
-                                                    <rect key="frame" x="38" y="507" width="121" height="21"/>
+                                                    <rect key="frame" x="45" y="507" width="121" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="Hpi-cq-J6f"/>
                                                         <constraint firstAttribute="width" constant="127" id="yfC-9R-cZV"/>
@@ -1079,6 +1076,6 @@
         <image name="calendars" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="272-v9-p0F"/>
+        <segue reference="4fR-L0-tjk"/>
     </inferredMetricsTieBreakers>
 </document>

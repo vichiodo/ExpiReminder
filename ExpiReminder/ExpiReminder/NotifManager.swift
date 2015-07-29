@@ -45,14 +45,14 @@ class NotifManager: NSObject{
                 localNotification.alertBody = "Faltam \(diasRestantes) dias para '\(strNotif)' vencer!"
             }
             
-            let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0 * 24
+            let dateFix: NSTimeInterval = floor(prod.dataValidade.timeIntervalSinceReferenceDate / 60.0) * 60.0
             var horario: NSDate = NSDate(timeIntervalSinceReferenceDate: dateFix)
             let intervalo: NSTimeInterval = -NSTimeInterval(60*60*24 * (diasRestantes))
             
             localNotification.soundName = UILocalNotificationDefaultSoundName
             localNotification.applicationIconBadgeNumber = 1
-            
             localNotification.fireDate = NSDate(timeInterval: intervalo, sinceDate: horario)
+            print("Notificaçao \(localNotification)\n")
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         }
         

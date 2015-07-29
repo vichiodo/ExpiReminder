@@ -35,8 +35,9 @@ class ConfigTableViewController: UITableViewController {
             usuarioManager.setAlerta(estaAtivo)
 
         if estaAtivo == true {
-            for i in 0...produtos.count {
+            for var i = 0; i<produtos.count; {
                 self.notifManager.criarNotificacao(produtos[i])
+                ++i
             }
         } else {
             UIApplication.sharedApplication().cancelAllLocalNotifications()
