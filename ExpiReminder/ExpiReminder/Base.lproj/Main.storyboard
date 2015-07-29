@@ -42,6 +42,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="AJF-1p-E9T" kind="relationship" relationship="rootViewController" id="QWe-fu-Evu"/>
@@ -780,6 +783,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTW-tx-R6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="mzP-n1-ci8" kind="relationship" relationship="rootViewController" id="n34-7y-9R6"/>
@@ -816,6 +822,8 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9UI-RZ-iXd">
                                                     <rect key="frame" x="512" y="6" width="51" height="31"/>
+                                                    <color key="tintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="alertaSwitch:" destination="PiW-gM-Bjr" eventType="valueChanged" id="Is3-tT-UXd"/>
                                                     </connections>
@@ -1054,6 +1062,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UMt-XZ-ogf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.090196078430000007" green="0.31372549020000001" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="PiW-gM-Bjr" kind="relationship" relationship="rootViewController" id="y8f-Cs-xbS"/>

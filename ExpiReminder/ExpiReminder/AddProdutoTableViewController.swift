@@ -108,7 +108,7 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
             [alerta.addAction(al1)]
             self.presentViewController(alerta, animated: true, completion: nil)
         }
-        else{
+         else{
             if editando == false{
                 produto = ProdutoManager.sharedInstance.novoProduto()
                 produto.nome = txtNome.text
@@ -128,18 +128,22 @@ class AddProdutoTableViewController: UITableViewController, UIImagePickerControl
                 self.notifManager.criarEventoCalendario(produto)
                 
             } else if let p = produto {
+                if usuarioManager.getAlerta() == true{
                     self.notifManager.cancelarNotificacao(p)
-                    self.notifManager.excluirEventoCalendario(p)
-                    
-                    produto.nome = txtNome.text
-                    produto.dataValidade = datePicker.date
-                    produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
-                    produto.codigoBarra = codigoBarras
-                    
-                    self.notifManager.criarNotificacao(produto)
-                    self.notifManager.criarEventoCalendario(produto)
+                }
+                self.notifManager.excluirEventoCalendario(p)
                 
-                    ProdutoManager.sharedInstance.salvarProduto()
+                produto.nome = txtNome.text
+                produto.dataValidade = datePicker.date
+                produto.foto = UIImageJPEGRepresentation(imagem.image, 1)
+                produto.codigoBarra = codigoBarras
+                
+                if usuarioManager.getAlerta() == true{
+                    self.notifManager.criarNotificacao(produto)
+                }
+                self.notifManager.criarEventoCalendario(produto)
+                
+                ProdutoManager.sharedInstance.salvarProduto()
                 
             }
             
