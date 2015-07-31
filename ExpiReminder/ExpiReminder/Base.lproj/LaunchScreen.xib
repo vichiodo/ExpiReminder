@@ -10,37 +10,78 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendars" translatesAutoresizingMaskIntoConstraints="NO" id="t1h-a1-uro">
-                    <rect key="frame" x="46" y="71" width="388" height="337"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="337" id="APe-mU-KE5">
-                            <variation key="heightClass=regular-widthClass=compact" constant="118"/>
-                        </constraint>
-                        <constraint firstAttribute="width" constant="388" id="gti-tS-LtG">
-                            <variation key="heightClass=regular-widthClass=compact" constant="378"/>
-                        </constraint>
-                    </constraints>
-                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1vJ-1j-VTe">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Jv-8C-SCp">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <items>
+                        <navigationItem id="zlP-zk-Efz"/>
+                    </items>
+                </navigationBar>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dta-rD-SaR">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem id="VdL-4V-nAH"/>
+                        <tabBarItem id="Yn9-vc-3ea"/>
+                    </items>
+                </tabBar>
             </subviews>
-            <color key="backgroundColor" red="0.12156862745098039" green="0.67843137254901964" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="t1h-a1-uro" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4F6-ad-UzP"/>
-                <constraint firstItem="t1h-a1-uro" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="71" id="7RT-i9-y92">
-                    <variation key="heightClass=regular-widthClass=compact" constant="181"/>
-                </constraint>
-                <constraint firstAttribute="bottom" secondItem="t1h-a1-uro" secondAttribute="bottom" constant="72" id="YOq-oT-OcN">
-                    <variation key="heightClass=regular-widthClass=compact" constant="181"/>
-                </constraint>
-                <constraint firstItem="t1h-a1-uro" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="dGz-sf-4Kv">
-                    <variation key="heightClass=regular-widthClass=compact" constant="51"/>
-                </constraint>
+                <constraint firstItem="Dta-rD-SaR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D0o-rP-cUZ"/>
+                <constraint firstItem="Dta-rD-SaR" firstAttribute="trailing" secondItem="6Jv-8C-SCp" secondAttribute="trailing" id="Dvi-Nu-uZ3"/>
+                <constraint firstAttribute="trailing" secondItem="1vJ-1j-VTe" secondAttribute="trailing" id="EJN-4Y-IbB"/>
+                <constraint firstItem="1vJ-1j-VTe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ege-rD-Ryr"/>
+                <constraint firstItem="1vJ-1j-VTe" firstAttribute="top" secondItem="6Jv-8C-SCp" secondAttribute="top" id="W4r-SR-tTd"/>
+                <constraint firstItem="1vJ-1j-VTe" firstAttribute="leading" secondItem="Dta-rD-SaR" secondAttribute="leading" id="Z2W-4S-w5H"/>
+                <constraint firstItem="6Jv-8C-SCp" firstAttribute="trailing" secondItem="1vJ-1j-VTe" secondAttribute="trailing" id="cnu-ar-cWJ"/>
+                <constraint firstItem="Dta-rD-SaR" firstAttribute="bottom" secondItem="1vJ-1j-VTe" secondAttribute="bottom" id="eLo-ca-PNH"/>
+                <constraint firstItem="6Jv-8C-SCp" firstAttribute="leading" secondItem="Dta-rD-SaR" secondAttribute="leading" id="nVb-wp-xG7"/>
+                <constraint firstAttribute="bottom" secondItem="1vJ-1j-VTe" secondAttribute="bottom" id="quL-Wt-0wo"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="1vJ-1j-VTe"/>
+                    <exclude reference="6Jv-8C-SCp"/>
+                    <exclude reference="Dta-rD-SaR"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="EJN-4Y-IbB"/>
+                    <exclude reference="Ege-rD-Ryr"/>
+                    <exclude reference="W4r-SR-tTd"/>
+                    <exclude reference="Z2W-4S-w5H"/>
+                    <exclude reference="quL-Wt-0wo"/>
+                    <exclude reference="cnu-ar-cWJ"/>
+                    <exclude reference="nVb-wp-xG7"/>
+                    <exclude reference="D0o-rP-cUZ"/>
+                    <exclude reference="Dvi-Nu-uZ3"/>
+                    <exclude reference="eLo-ca-PNH"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="1vJ-1j-VTe"/>
+                    <include reference="6Jv-8C-SCp"/>
+                    <include reference="Dta-rD-SaR"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="EJN-4Y-IbB"/>
+                    <include reference="Ege-rD-Ryr"/>
+                    <include reference="W4r-SR-tTd"/>
+                    <include reference="Z2W-4S-w5H"/>
+                    <include reference="quL-Wt-0wo"/>
+                    <include reference="cnu-ar-cWJ"/>
+                    <include reference="nVb-wp-xG7"/>
+                    <include reference="D0o-rP-cUZ"/>
+                    <include reference="Dvi-Nu-uZ3"/>
+                    <include reference="eLo-ca-PNH"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="538" y="295"/>
         </view>
     </objects>
-    <resources>
-        <image name="calendars" width="512" height="512"/>
-    </resources>
 </document>
